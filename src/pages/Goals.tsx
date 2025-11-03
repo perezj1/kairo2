@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { ArrowLeft } from "lucide-react";
-import { CATEGORIES } from "@/lib/categories";
+import { CATEGORIES, getCategoryName, getCategoryDescription } from "@/lib/categories";
 import { toast } from "sonner";
 import BottomNav from "@/components/BottomNav";
 import { useI18n } from "@/contexts/I18nContext";
@@ -14,6 +14,7 @@ import { useI18n } from "@/contexts/I18nContext";
 const Goals = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { t: translate, locale } = useI18n();
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -90,8 +91,6 @@ const Goals = () => {
     );
   }
 
-  const { t } = useI18n();
-
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Header - Duolingo Style */}
@@ -106,7 +105,7 @@ const Goals = () => {
             >
               <ArrowLeft className="h-6 w-6" />
             </Button>
-            <h1 className="text-3xl font-black">{t("my_goals")}</h1>
+            <h1 className="text-3xl font-black">{translate("my_goals")}</h1>
           </div>
         </div>
       </div>
@@ -114,9 +113,9 @@ const Goals = () => {
       <div className="max-w-2xl mx-auto p-6">
         <Card className="shadow-hover">
           <CardHeader>
-            <CardTitle className="text-3xl font-black">{t("manage_goals")}</CardTitle>
+            <CardTitle className="text-3xl font-black">{translate("manage_goals")}</CardTitle>
             <CardDescription className="text-base">
-              {t("manage_goals_desc")}
+              {translate("manage_goals_desc")}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -134,8 +133,8 @@ const Goals = () => {
                   <div className="flex items-center gap-4 flex-1">
                     <span className="text-4xl drop-shadow-sm">{category.icon}</span>
                     <div className="flex-1">
-                      <h3 className="font-bold text-lg text-foreground">{category.name}</h3>
-                      <p className="text-sm text-muted-foreground">{category.description}</p>
+                      <h3 className="font-bold text-lg text-foreground">{getCategoryName(category.id, locale)}</h3>
+                      <p className="text-sm text-muted-foreground">{getCategoryDescription(category.id, locale)}</p>
                     </div>
                   </div>
                   <Switch

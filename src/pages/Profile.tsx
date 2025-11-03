@@ -7,8 +7,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ArrowLeft, User, Mail, Calendar, LogOut, Globe, Flame, Trophy, Heart, Share2, Camera, Award } from "lucide-react";
+import { ArrowLeft, User, Mail, Calendar, LogOut, Globe, Flame, Trophy, Heart, Share2, Camera, Award, Bell } from "lucide-react";
 import { toast } from "sonner";
 import BottomNav from "@/components/BottomNav";
 import { useI18n, Locale } from "@/contexts/I18nContext";
@@ -36,6 +37,7 @@ const Profile = () => {
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [showRewards, setShowRewards] = useState(false);
+  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
 
   useEffect(() => {
     if (!user) {
@@ -64,6 +66,17 @@ const Profile = () => {
 
       if (data?.locale) {
         setLocale(data.locale as Locale);
+      }
+
+      // Load preferences
+      const { data: prefs } = await supabase
+        .from("preferences")
+        .select("notifications_enabled")
+        .eq("user_id", user?.id)
+        .single();
+
+      if (prefs) {
+        setNotificationsEnabled(prefs.notifications_enabled);
       }
 
       // Load gamification stats
@@ -140,7 +153,7 @@ const Profile = () => {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const { error } = await supabase
+      const { error: profileError } = await supabase
         .from("profiles")
         .update({ 
           username: profile.username,
@@ -148,7 +161,15 @@ const Profile = () => {
         })
         .eq("id", user?.id);
 
-      if (error) throw error;
+      if (profileError) throw profileError;
+
+      const { error: prefsError } = await supabase
+        .from("preferences")
+        .update({ notifications_enabled: notificationsEnabled })
+        .eq("user_id", user?.id);
+
+      if (prefsError) throw prefsError;
+
       toast.success(t("profile_updated"));
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -418,6 +439,21 @@ const Profile = () => {
                   </SelectItem>
                 </SelectContent>
               </Select>
+            </div>
+
+            {/* Notifications Toggle */}
+            <div className="flex items-center justify-between p-4 bg-muted rounded-2xl">
+              <div className="flex items-center gap-3">
+                <Bell className="h-5 w-5 text-muted-foreground" />
+                <Label htmlFor="notifications" className="font-bold cursor-pointer">
+                  {t("notifications")}
+                </Label>
+              </div>
+              <Switch
+                id="notifications"
+                checked={notificationsEnabled}
+                onCheckedChange={setNotificationsEnabled}
+              />
             </div>
 
             {/* Save button */}

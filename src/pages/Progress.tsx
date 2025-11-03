@@ -8,7 +8,7 @@ import { ArrowLeft, TrendingUp, Target, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BottomNav from "@/components/BottomNav";
 import { useI18n } from "@/contexts/I18nContext";
-import { CATEGORIES, getCategoryIcon, getCategoryById } from "@/lib/categories";
+import { CATEGORIES, getCategoryIcon, getCategoryById, getCategoryName } from "@/lib/categories";
 
 interface CategoryStats {
   category: string;
@@ -20,7 +20,7 @@ interface CategoryStats {
 const Progress = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   
   const [categoryStats, setCategoryStats] = useState<CategoryStats[]>([]);
   const [totalCompleted, setTotalCompleted] = useState(0);
@@ -33,7 +33,7 @@ const Progress = () => {
       return;
     }
     loadProgress();
-  }, [user, navigate]);
+  }, [user, navigate, locale]);
 
   const loadProgress = async () => {
     try {
@@ -184,7 +184,7 @@ const Progress = () => {
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{getCategoryIcon(stat.category)}</span>
                       <div>
-                        <div className="font-medium">{category?.name || stat.category}</div>
+                        <div className="font-medium">{getCategoryName(stat.category, locale)}</div>
                         <div className="text-sm text-muted-foreground">
                           {stat.completed} / {stat.total} tareas
                         </div>

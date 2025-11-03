@@ -5,13 +5,21 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LogOut, Settings, Target, ChevronLeft, ChevronRight, Globe, Flame, Trophy, Zap } from "lucide-react";
+import { ChevronLeft, ChevronRight, Flame, Trophy, Zap, User, LogOut, Settings as SettingsIcon } from "lucide-react";
 import { getCategoryIcon, getCategoryColor, getCategoryById, getCategoryName } from "@/lib/categories";
 import { toast } from "sonner";
 import BottomNav from "@/components/BottomNav";
 import { useI18n } from "@/contexts/I18nContext";
 import { shuffleTasks } from "@/lib/taskShuffler";
 import { getTaskTranslation } from "@/lib/taskTranslations";
+import { Progress } from "@/components/ui/progress";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface Task {
   id: string;
@@ -463,23 +471,36 @@ const Home = () => {
     return (
       <div className="min-h-screen bg-background p-6 flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-hero text-white p-6 shadow-button">
+      <div className="bg-gradient-hero text-white p-4 shadow-button">
         <div className="max-w-2xl mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-black">{t("app_name")}</h1>
-          <div className="flex gap-2">
-            <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full" onClick={cycle}>
-              <Globe className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full" onClick={() => navigate("/goals")}>
-              <Target className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full" onClick={() => navigate("/settings")}>
-              <Settings className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full" onClick={signOut}>
-              <LogOut className="h-5 w-5" />
-            </Button>
-          </div>
+          <h1 className="text-2xl font-black">{t("app_name")}</h1>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full">
+                <Avatar className="h-8 w-8 border-2 border-white">
+                  <AvatarImage src={stats.avatarUrl} />
+                  <AvatarFallback className="bg-white text-primary text-sm font-black">
+                    {stats.username.charAt(0).toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem onClick={() => navigate("/profile")}>
+                <User className="h-4 w-4 mr-2" />
+                {t("profile")}
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate("/settings")}>
+                <SettingsIcon className="h-4 w-4 mr-2" />
+                {t("settings")}
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={signOut} className="text-destructive">
+                <LogOut className="h-4 w-4 mr-2" />
+                {t("logout")}
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
 
@@ -500,72 +521,81 @@ const Home = () => {
     );
   }
 
+  const xpToNextLevel = stats.level * 100;
+  const currentLevelXP = stats.totalXP % 100;
+  const levelProgress = (currentLevelXP / 100) * 100;
+
   return (
     <div className="min-h-screen bg-background flex flex-col pb-16">
-      {/* Header - Duolingo Style */}
-      <div className="bg-gradient-hero text-white p-6 shadow-button">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-black">{t("app_name")}</h1>
-            <div className="flex gap-2">
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full" onClick={cycle}>
-                <Globe className="h-5 w-5" />
+      {/* Header - Simplified */}
+      <div className="bg-gradient-hero text-white p-4 shadow-button">
+        <div className="max-w-2xl mx-auto flex justify-between items-center">
+          <h1 className="text-2xl font-black">{t("app_name")}</h1>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full">
+                <Avatar className="h-8 w-8 border-2 border-white">
+                  <AvatarImage src={stats.avatarUrl} />
+                  <AvatarFallback className="bg-white text-primary text-sm font-black">
+                    {stats.username.charAt(0).toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
               </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full" onClick={() => navigate("/goals")}>
-                <Target className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full" onClick={() => navigate("/settings")}>
-                <Settings className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full" onClick={signOut}>
-                <LogOut className="h-5 w-5" />
-              </Button>
-            </div>
-          </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem onClick={() => navigate("/profile")}>
+                <User className="h-4 w-4 mr-2" />
+                {t("profile")}
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate("/settings")}>
+                <SettingsIcon className="h-4 w-4 mr-2" />
+                {t("settings")}
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={signOut} className="text-destructive">
+                <LogOut className="h-4 w-4 mr-2" />
+                {t("logout")}
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </div>
 
-          {/* User Stats - Duolingo Style */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 shadow-button border-2 border-white/20">
-            <div className="flex items-center gap-4 mb-5">
-              <Avatar 
-                className="h-20 w-20 border-4 border-white cursor-pointer hover:scale-105 transition-all shadow-lg"
-                onClick={() => navigate("/profile")}
-              >
-                <AvatarImage src={stats.avatarUrl} />
-                <AvatarFallback className="bg-white text-primary text-2xl font-black">
-                  {stats.username.charAt(0).toUpperCase()}
-                </AvatarFallback>
-              </Avatar>
-              <div className="flex-1">
-                <p className="font-black text-2xl drop-shadow-sm">{stats.username}</p>
-                <div className="flex items-center gap-2 text-sm mt-2">
-                  <Trophy className="h-5 w-5 text-yellow-300 drop-shadow-sm" />
-                  <span className="bg-white/30 px-3 py-1 rounded-full font-bold">{t("level")} {stats.level}</span>
+      {/* Compact User Stats */}
+      <div className="bg-gradient-hero text-white px-4 pb-4">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 shadow-button border border-white/20">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <Trophy className="h-5 w-5 text-yellow-300" />
+                  <span className="font-bold text-lg">{t("level")} {stats.level}</span>
+                </div>
+                <div className="h-4 w-px bg-white/30" />
+                <div className="flex items-center gap-2">
+                  <Flame className="h-5 w-5 text-orange-300" />
+                  <span className="font-bold">{stats.currentStreak}</span>
+                </div>
+                <div className="h-4 w-px bg-white/30" />
+                <div className="flex items-center gap-2">
+                  <Zap className="h-5 w-5 text-yellow-300" />
+                  <span className="font-bold">{stats.totalXP}</span>
                 </div>
               </div>
             </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/20 rounded-2xl p-4 flex items-center gap-3 hover:bg-white/25 transition-all">
-                <Zap className="h-8 w-8 text-yellow-300 drop-shadow-md" />
-                <div>
-                  <p className="text-xs opacity-90 uppercase tracking-wider font-bold">XP</p>
-                  <p className="font-black text-2xl drop-shadow-sm">{stats.totalXP}</p>
-                </div>
+            <div className="space-y-1">
+              <div className="flex justify-between text-xs opacity-80">
+                <span>{currentLevelXP} XP</span>
+                <span>{xpToNextLevel} XP</span>
               </div>
-              <div className="bg-white/20 rounded-2xl p-4 flex items-center gap-3 hover:bg-white/25 transition-all">
-                <Flame className="h-8 w-8 text-orange-300 drop-shadow-md" />
-                <div>
-                  <p className="text-xs opacity-90 uppercase tracking-wider font-bold">{t("streak")}</p>
-                  <p className="font-black text-2xl drop-shadow-sm">{stats.currentStreak}</p>
-                </div>
-              </div>
+              <Progress value={levelProgress} className="h-2 bg-white/20" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Task Card - Duolingo Style */}
-      <div className="flex-1 p-6 flex items-center justify-center">
+      <div className="flex-1 p-6 flex flex-col items-center justify-center gap-6">
         <div className="w-full max-w-md">
           <Card 
             className="w-full shadow-hover" 
@@ -592,7 +622,7 @@ const Home = () => {
                 <p className="text-muted-foreground text-lg leading-relaxed">{taskDescription}</p>
               </div>
 
-              <div className="flex flex-col gap-4 mt-10">
+              <div className="flex flex-col gap-4 mt-8">
                 <Button 
                   className="w-full shadow-button hover:scale-[1.02] transition-transform" 
                   size="lg" 
@@ -610,34 +640,35 @@ const Home = () => {
                   {t("skip")}
                 </Button>
               </div>
-
-              <div className="mt-8 flex items-center justify-center gap-6 text-base text-muted-foreground">
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  onClick={prev} 
-                  disabled={currentIndex === 0}
-                  className="hover:scale-110 transition-transform rounded-full"
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </Button>
-                <div className="flex items-center gap-2 font-bold">
-                  <span className="text-xl text-primary">{currentIndex + 1}</span>
-                  <span className="text-muted-foreground">/</span>
-                  <span className="text-lg">{tasks.length}</span>
-                </div>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  onClick={next} 
-                  disabled={currentIndex >= tasks.length - 1}
-                  className="hover:scale-110 transition-transform rounded-full"
-                >
-                  <ChevronRight className="h-6 w-6" />
-                </Button>
-              </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Navigation controls outside card */}
+        <div className="flex items-center justify-center gap-6 text-base">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={prev} 
+            disabled={currentIndex === 0}
+            className="hover:scale-110 transition-transform rounded-full"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
+          <div className="flex items-center gap-2 font-bold text-muted-foreground">
+            <span className="text-xl text-primary">{currentIndex + 1}</span>
+            <span>/</span>
+            <span className="text-lg">{tasks.length}</span>
+          </div>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={next} 
+            disabled={currentIndex >= tasks.length - 1}
+            className="hover:scale-110 transition-transform rounded-full"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </Button>
         </div>
       </div>
 
