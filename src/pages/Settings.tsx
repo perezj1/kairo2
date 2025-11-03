@@ -5,7 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
-import { CATEGORIES } from '@/lib/categories';
+import { CATEGORIES, getCategoryName, getCategoryDescription } from '@/lib/categories';
 import { toast } from 'sonner';
 import { ArrowLeft, Bell } from 'lucide-react';
 import BottomNav from '@/components/BottomNav';
@@ -14,7 +14,7 @@ import { useI18n } from '@/contexts/I18nContext';
 const Settings = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [loading, setLoading] = useState(true);
@@ -190,9 +190,9 @@ const Settings = () => {
                   <div className="flex items-center gap-4">
                     <div className="text-4xl">{category.icon}</div>
                     <div>
-                      <h3 className="font-bold text-lg">{category.name}</h3>
+                      <h3 className="font-bold text-lg">{getCategoryName(category.id, locale)}</h3>
                       <p className="text-sm text-muted-foreground">
-                        {category.description}
+                        {getCategoryDescription(category.id, locale)}
                       </p>
                     </div>
                   </div>

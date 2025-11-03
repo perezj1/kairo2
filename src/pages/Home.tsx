@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LogOut, Settings, Target, ChevronLeft, ChevronRight, Globe, Flame, Trophy, Zap } from "lucide-react";
-import { getCategoryIcon, getCategoryColor, getCategoryById } from "@/lib/categories";
+import { getCategoryIcon, getCategoryColor, getCategoryById, getCategoryName } from "@/lib/categories";
 import { toast } from "sonner";
 import BottomNav from "@/components/BottomNav";
 import { useI18n } from "@/contexts/I18nContext";
@@ -112,8 +112,8 @@ const Home = () => {
       const { data: userCategories } = await supabase
         .from("user_categories")
         .select("category")
-        .eq("user_id", user?.id)
-        .eq("active", true);
+        .eq("user_id", user?.id!)
+        .eq("active", true) as { data: { category: string }[] | null };
 
       if (!userCategories || userCategories.length === 0) {
         setTasks([]);
@@ -122,20 +122,127 @@ const Home = () => {
       }
 
       const activeCategories = userCategories.map((uc) => uc.category);
-      const { data: tasksData, error } = await supabase
+
+      // Check if we have tasks assigned for today
+      const today = new Date().toISOString().split('T')[0];
+      const { data: dailyTasksData } = await supabase
+        .from("daily_tasks")
+        .select("task_id")
+        .eq("user_id", user?.id!)
+        .eq("assigned_date", today) as { data: { task_id: string }[] | null };
+
+      if (dailyTasksData && dailyTasksData.length > 0) {
+        // Load existing tasks for today
+        const taskIds = dailyTasksData.map(dt => dt.task_id);
+        const { data: existingTasks } = await supabase
+          .from("tasks")
+          .select("*")
+          .in("id", taskIds);
+
+        if (existingTasks) {
+          // Check which categories have tasks
+          const categoriesWithTasks = new Set(existingTasks.map(t => t.category));
+          const missingCategories = activeCategories.filter(cat => !categoriesWithTasks.has(cat));
+          const inactiveCategories = [...categoriesWithTasks].filter(cat => !activeCategories.includes(cat));
+
+          // Remove tasks from inactive categories
+          if (inactiveCategories.length > 0) {
+            const tasksToRemove = existingTasks.filter(t => inactiveCategories.includes(t.category));
+            const taskIdsToRemove = tasksToRemove.map(t => t.id);
+            
+            await supabase
+              .from("daily_tasks")
+              .delete()
+              .eq("user_id", user?.id!)
+              .eq("assigned_date", today)
+              .in("task_id", taskIdsToRemove);
+          }
+
+          // Add tasks for missing categories
+          let updatedTasks = existingTasks.filter(t => activeCategories.includes(t.category));
+          
+          if (missingCategories.length > 0) {
+            for (const category of missingCategories) {
+              const { data: categoryTasks } = await supabase
+                .from("tasks")
+                .select("*")
+                .eq("category", category);
+
+              if (categoryTasks && categoryTasks.length > 0) {
+                // Select 5 random tasks from this category
+                const shuffled = categoryTasks.sort(() => Math.random() - 0.5);
+                const selectedTasks = shuffled.slice(0, 5);
+                
+                // Add to daily_tasks
+                const dailyTasksToInsert = selectedTasks.map(task => ({
+                  user_id: user?.id!,
+                  task_id: task.id,
+                  assigned_date: today
+                }));
+
+                await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
+                
+                // Add to our tasks array
+                updatedTasks = [...updatedTasks, ...selectedTasks];
+              }
+            }
+          }
+
+          // Maintain the order from daily_tasks for existing, append new ones
+          const finalTaskIds = [...taskIds.filter(id => updatedTasks.some(t => t.id === id)), ...updatedTasks.filter(t => !taskIds.includes(t.id)).map(t => t.id)];
+          const orderedTasks = finalTaskIds
+            .map(id => updatedTasks.find(t => t.id === id))
+            .filter(Boolean) as Task[];
+          
+          setTasks(orderedTasks);
+          setCurrentIndex(0);
+          setLoading(false);
+          return;
+        }
+      }
+
+      // No tasks for today, generate new ones
+      const { data: allTasks, error } = await supabase
         .from("tasks")
         .select("*")
         .in("category", activeCategories);
 
       if (error) throw error;
+
+      // Group tasks by category
+      const tasksByCategory: Record<string, Task[]> = {};
+      allTasks?.forEach(task => {
+        if (!tasksByCategory[task.category]) {
+          tasksByCategory[task.category] = [];
+        }
+        tasksByCategory[task.category].push(task);
+      });
+
+      // Select 5 random tasks per category
+      const selectedTasks: Task[] = [];
+      Object.keys(tasksByCategory).forEach(category => {
+        const categoryTasks = tasksByCategory[category];
+        const shuffled = categoryTasks.sort(() => Math.random() - 0.5);
+        selectedTasks.push(...shuffled.slice(0, 5));
+      });
+
+      // Shuffle all selected tasks to mix categories
+      const finalTasks = shuffleTasks(selectedTasks);
       
-      // Shuffle tasks to avoid consecutive tasks from same category
-      const shuffled = shuffleTasks(tasksData || []);
-      setTasks(shuffled);
+      // Save to daily_tasks
+      const dailyTasksToInsert = finalTasks.map(task => ({
+        user_id: user?.id!,
+        task_id: task.id,
+        assigned_date: today
+      }));
+
+      await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
+
+      setTasks(finalTasks);
       setCurrentIndex(0);
     } catch (error) {
       console.error("Error loading tasks:", error);
-      toast.error("Error al cargar tus tareas");
+      toast.error(t("error_loading_tasks") || "Error al cargar tus tareas");
     } finally {
       setLoading(false);
     }
@@ -151,36 +258,160 @@ const Home = () => {
   const handleComplete = useCallback(async () => {
     if (!current) return;
     try {
+      const today = new Date().toISOString().split('T')[0];
+
+      // Mark task as completed
       await supabase.from("completed_tasks").insert({
-        user_id: user?.id,
+        user_id: user?.id!,
         task_id: current.id,
         completed_at: new Date().toISOString(),
         skipped: false,
-      });
-      toast.success("¡Tarea completada! 🎉");
-      setCurrentIndex((i) => Math.min(i + 1, tasks.length - 1));
+      } as any);
+
+      // Remove from daily_tasks
+      await supabase
+        .from("daily_tasks")
+        .delete()
+        .eq("user_id", user?.id!)
+        .eq("task_id", current.id)
+        .eq("assigned_date", today);
+
+      toast.success(t("task_completed") || "¡Tarea completada! 🎉");
+      
+      // Get a new task from the same category
+      const { data: categoryTasks } = await supabase
+        .from("tasks")
+        .select("*")
+        .eq("category", current.category);
+
+      // Filter out tasks already in the list
+      const usedTaskIds = tasks.map(t => t.id);
+      const availableTasks = categoryTasks?.filter(
+        task => !usedTaskIds.includes(task.id)
+      ) || [];
+
+      // Remove current task from its position
+      const newTasks = [...tasks];
+      newTasks.splice(currentIndex, 1);
+      
+      // Add a new task at a random position if available
+      if (availableTasks.length > 0) {
+        const randomTask = availableTasks[Math.floor(Math.random() * availableTasks.length)];
+        const randomPosition = Math.floor(Math.random() * (newTasks.length + 1));
+        newTasks.splice(randomPosition, 0, randomTask);
+
+        // Add new task to daily_tasks
+        await supabase.from("daily_tasks").insert({
+          user_id: user?.id!,
+          task_id: randomTask.id,
+          assigned_date: today
+        } as any);
+      }
+
+      // Update daily_tasks order to match new array
+      await supabase
+        .from("daily_tasks")
+        .delete()
+        .eq("user_id", user?.id!)
+        .eq("assigned_date", today);
+
+      const dailyTasksToInsert = newTasks.map(task => ({
+        user_id: user?.id!,
+        task_id: task.id,
+        assigned_date: today
+      }));
+
+      await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
+      
+      setTasks(newTasks);
+      
+      // Adjust current index if needed
+      const newIndex = Math.min(currentIndex, newTasks.length - 1);
+      setCurrentIndex(newIndex >= 0 ? newIndex : 0);
     } catch (e) {
       console.error(e);
-      toast.error("Error al completar la tarea");
+      toast.error(t("error_complete") || "Error al completar la tarea");
     }
-  }, [current, tasks.length, user?.id]);
+  }, [current, tasks, currentIndex, user?.id, t]);
 
   const handleSkip = useCallback(async () => {
     if (!current) return;
     try {
+      const today = new Date().toISOString().split('T')[0];
+
+      // Mark task as skipped
       await supabase.from("completed_tasks").insert({
-        user_id: user?.id,
+        user_id: user?.id!,
         task_id: current.id,
         completed_at: new Date().toISOString(),
         skipped: true,
-      });
-      toast.info("Tarea omitida");
-      setCurrentIndex((i) => Math.min(i + 1, tasks.length - 1));
+      } as any);
+
+      // Remove from daily_tasks
+      await supabase
+        .from("daily_tasks")
+        .delete()
+        .eq("user_id", user?.id!)
+        .eq("task_id", current.id)
+        .eq("assigned_date", today);
+
+      toast.info(t("task_skipped") || "Tarea omitida");
+      
+      // Get a new task from the same category
+      const { data: categoryTasks } = await supabase
+        .from("tasks")
+        .select("*")
+        .eq("category", current.category);
+
+      // Filter out tasks already in the list
+      const usedTaskIds = tasks.map(t => t.id);
+      const availableTasks = categoryTasks?.filter(
+        task => !usedTaskIds.includes(task.id)
+      ) || [];
+
+      // Remove current task from its position
+      const newTasks = [...tasks];
+      newTasks.splice(currentIndex, 1);
+      
+      // Add a new task at a random position if available
+      if (availableTasks.length > 0) {
+        const randomTask = availableTasks[Math.floor(Math.random() * availableTasks.length)];
+        const randomPosition = Math.floor(Math.random() * (newTasks.length + 1));
+        newTasks.splice(randomPosition, 0, randomTask);
+
+        // Add new task to daily_tasks
+        await supabase.from("daily_tasks").insert({
+          user_id: user?.id!,
+          task_id: randomTask.id,
+          assigned_date: today
+        } as any);
+      }
+
+      // Update daily_tasks order to match new array
+      await supabase
+        .from("daily_tasks")
+        .delete()
+        .eq("user_id", user?.id!)
+        .eq("assigned_date", today);
+
+      const dailyTasksToInsert = newTasks.map(task => ({
+        user_id: user?.id!,
+        task_id: task.id,
+        assigned_date: today
+      }));
+
+      await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
+      
+      setTasks(newTasks);
+      
+      // Adjust current index if needed
+      const newIndex = Math.min(currentIndex, newTasks.length - 1);
+      setCurrentIndex(newIndex >= 0 ? newIndex : 0);
     } catch (e) {
       console.error(e);
-      toast.error("Error al omitir la tarea");
+      toast.error(t("error_skip") || "Error al omitir la tarea");
     }
-  }, [current, tasks.length, user?.id]);
+  }, [current, tasks, currentIndex, user?.id, t]);
 
   const prev = () => setCurrentIndex((i) => Math.max(i - 1, 0));
   const next = () => setCurrentIndex((i) => Math.min(i + 1, tasks.length - 1));
@@ -226,6 +457,9 @@ const Home = () => {
   }
 
   if (!current) {
+    // Check if we had tasks today but completed them all
+    const hasCompletedTasksToday = tasks.length === 0 && !loading;
+    
     return (
       <div className="min-h-screen bg-background p-6 flex flex-col">
       {/* Header */}
@@ -250,10 +484,14 @@ const Home = () => {
       </div>
 
         <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <div className="text-6xl mb-4">🎯</div>
-            <h2 className="text-2xl font-bold mb-2">{t("no_tasks_title")}</h2>
-            <p className="text-muted-foreground mb-6">{t("no_tasks_desc")}</p>
+          <div className="text-center max-w-md px-4">
+            <div className="text-6xl mb-4">{hasCompletedTasksToday ? "🎉" : "🎯"}</div>
+            <h2 className="text-2xl font-bold mb-2">
+              {hasCompletedTasksToday ? t("all_done_title") : t("no_tasks_title")}
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              {hasCompletedTasksToday ? t("all_done_desc") : t("no_tasks_desc")}
+            </p>
             <Button onClick={() => navigate("/settings")}>{t("go_settings")}</Button>
           </div>
         </div>
@@ -348,7 +586,7 @@ const Home = () => {
                   className="inline-block px-5 py-2 rounded-full text-white text-sm font-black mb-6 uppercase tracking-wider shadow-button"
                   style={{ backgroundColor: getCategoryColor(current.category) }}
                 >
-                  {getCategoryById(current.category)?.name || current.category.replace(/_/g, " ")}
+                  {getCategoryName(current.category, locale)}
                 </div>
                 <h2 className="text-3xl font-black mb-6 leading-tight text-foreground">{taskTitle}</h2>
                 <p className="text-muted-foreground text-lg leading-relaxed">{taskDescription}</p>
