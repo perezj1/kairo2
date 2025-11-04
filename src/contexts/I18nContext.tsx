@@ -4,7 +4,7 @@ export type Locale = "es" | "en" | "de";
 
 const DICTIONARY = {
   es: {
-    app_name: "KAIRO",
+    app_name: "REMI",
     home: "Inicio",
     goals: "Objetivos",
     profile: "Perfil",
@@ -64,12 +64,12 @@ const DICTIONARY = {
     hearts: "Corazones",
     days: "días",
     share_app: "Compartir App",
-    share_message: "¡Únete a mí en KAIRO! Una app que te ayuda a alcanzar tus objetivos con gamificación. 🎯",
+    share_message: "¡Únete a mí en REMI! Una app que te ayuda a alcanzar tus objetivos con gamificación. 🎯",
     rewards_unlocked: "Recompensas desbloqueadas",
     achievements: "Logros"
   },
   en: {
-    app_name: "KAIRO",
+    app_name: "REMI",
     home: "Home",
     goals: "Goals",
     profile: "Profile",
@@ -129,12 +129,12 @@ const DICTIONARY = {
     hearts: "Hearts",
     days: "days",
     share_app: "Share App",
-    share_message: "Join me on KAIRO! An app that helps you achieve your goals with gamification. 🎯",
+    share_message: "Join me on REMI! An app that helps you achieve your goals with gamification. 🎯",
     rewards_unlocked: "Rewards unlocked",
     achievements: "Achievements"
   },
   de: {
-    app_name: "KAIRO",
+    app_name: "REMI",
     home: "Startseite",
     goals: "Ziele",
     profile: "Profil",
@@ -193,7 +193,7 @@ const DICTIONARY = {
     hearts: "Herzen",
     days: "Tage",
     share_app: "App teilen",
-    share_message: "Begleite mich bei KAIRO! Eine App, die dir hilft, deine Ziele mit Gamification zu erreichen. 🎯",
+    share_message: "Begleite mich bei REMI! Eine App, die dir hilft, deine Ziele mit Gamification zu erreichen. 🎯",
     rewards_unlocked: "Belohnungen freigeschaltet",
     achievements: "Erfolge",
     error_loading_tasks: "Fehler beim Laden der Aufgaben"

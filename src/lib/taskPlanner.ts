@@ -1,4 +1,4 @@
-// Task Planner Engine for KAIRO
+// Task Planner Engine for REMI
 // Generates daily micro-tasks based on goal, level, and user preferences
 
 export interface Task {

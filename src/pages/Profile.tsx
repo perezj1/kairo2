@@ -236,7 +236,7 @@ const Profile = () => {
 
   const handleShare = async () => {
     const shareData = {
-      title: 'KAIRO',
+      title: 'REMI',
       text: t('share_message'),
       url: window.location.origin
     };

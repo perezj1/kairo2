@@ -1,4 +1,4 @@
-// Categorías simplificadas para KAIRO
+// Categorías simplificadas para REMI
 export interface Category {
   id: string;
   name: string;

@@ -70,7 +70,7 @@ const Auth = () => {
           </CardTitle>
           <CardDescription className="text-base">
             {isLogin 
-              ? 'Continúa mejorando cada día con KAIRO'
+              ? 'Continúa mejorando cada día con REMI'
               : 'Crea tu cuenta y comienza a lograr tus objetivos'}
           </CardDescription>
         </CardHeader>
