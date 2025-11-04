@@ -187,6 +187,35 @@ export type Database = {
           },
         ]
       }
+      /** NUEVA: registro de notificaciones enviadas */
+      notification_log: {
+        Row: {
+          id: string
+          user_id: string
+          slot_window: string
+          slot: number
+          sent_at: string
+          sent_date: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          slot_window?: string
+          slot?: number
+          sent_at?: string
+          // sent_date es columna generada (stored); no es necesario enviarla
+          sent_date?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          slot_window?: string
+          slot?: number
+          sent_at?: string
+          sent_date?: string
+        }
+        Relationships: []
+      }
       preferences: {
         Row: {
           evening_hour: number
@@ -243,6 +272,37 @@ export type Database = {
           locale?: string | null
           tz?: string | null
           username?: string | null
+        }
+        Relationships: []
+      }
+      /** NUEVA: suscripciones Web Push del usuario */
+      push_subscriptions: {
+        Row: {
+          user_id: string
+          endpoint: string
+          p256dh: string
+          auth: string
+          locale: string | null
+          tz: string | null
+          created_at: string | null
+        }
+        Insert: {
+          user_id: string
+          endpoint: string
+          p256dh: string
+          auth: string
+          locale?: string | null
+          tz?: string | null
+          created_at?: string | null
+        }
+        Update: {
+          user_id?: string
+          endpoint?: string
+          p256dh?: string
+          auth?: string
+          locale?: string | null
+          tz?: string | null
+          created_at?: string | null
         }
         Relationships: []
       }
