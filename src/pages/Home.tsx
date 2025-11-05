@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ChevronLeft, ChevronRight, Flame, Trophy, Zap, User, LogOut, Settings as SettingsIcon } from "lucide-react";
-import { getCategoryIcon, getCategoryColor, getCategoryById, getCategoryName } from "@/lib/categories";
+import { getCategoryIcon, getCategoryColor, getCategoryName } from "@/lib/categories";
 import { toast } from "sonner";
 import BottomNav from "@/components/BottomNav";
 import { useI18n } from "@/contexts/I18nContext";
@@ -21,6 +21,33 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+/** ================================
+ *  DIFFICULTY HELPERS (prefijos)
+ *  ================================ */
+type Difficulty = 'EASY' | 'MEDIUM' | 'HARD';
+
+function difficultyFromUserLevel(level: number): Difficulty {
+  if (level >= 1 && level <= 3) return 'EASY';
+  if (level >= 4 && level <= 6) return 'MEDIUM';
+  return 'HARD'; // 7–10+
+}
+
+function parseDifficultyFromText(text?: string | null): Difficulty | null {
+  if (!text) return null;
+  if (/^EASY_/i.test(text)) return 'EASY';
+  if (/^MEDIUM_/i.test(text)) return 'MEDIUM';
+  if (/^HARD_/i.test(text)) return 'HARD';
+  return null;
+}
+
+function stripDifficultyPrefix(text?: string | null): string | undefined | null {
+  if (!text) return text;
+  return text.replace(/^(EASY_|MEDIUM_|HARD_)/i, '');
+}
+
+/** ================================
+ *  TYPES
+ *  ================================ */
 interface Task {
   id: string;
   category: string;
@@ -32,7 +59,7 @@ interface Task {
 const Home = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
-  const { t, cycle, locale } = useI18n();
+  const { t, locale } = useI18n();
 
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
@@ -45,6 +72,9 @@ const Home = () => {
     avatarUrl: ''
   });
 
+  /** ================================
+   *  INIT
+   *  ================================ */
   useEffect(() => {
     if (!user) {
       navigate("/auth");
@@ -52,18 +82,22 @@ const Home = () => {
     }
     loadTasks();
     loadUserStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, navigate]);
 
+  /** ================================
+   *  USER STATS / LEVEL
+   *  ================================ */
   const loadUserStats = async () => {
     try {
-      // Load profile info
+      // Profile
       const { data: profile } = await supabase
         .from('profiles')
         .select('username, avatar_url')
         .eq('id', user?.id)
         .single();
 
-      // Load completed tasks for XP calculation
+      // Completed tasks → XP
       const { data: completedTasks } = await supabase
         .from('completed_tasks')
         .select('completed_at')
@@ -73,12 +107,12 @@ const Home = () => {
       const totalXP = (completedTasks?.length || 0) * 10;
       const level = Math.floor(totalXP / 100) + 1;
 
-      // Calculate current streak
+      // Streak
       let currentStreak = 0;
       if (completedTasks && completedTasks.length > 0) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        
+
         const dates = completedTasks.map(t => {
           const d = new Date(t.completed_at);
           d.setHours(0, 0, 0, 0);
@@ -86,14 +120,13 @@ const Home = () => {
         });
 
         const uniqueDates = [...new Set(dates)].sort((a, b) => b - a);
-        
+
         for (let i = 0; i < uniqueDates.length; i++) {
           const daysDiff = Math.floor((today.getTime() - uniqueDates[i]) / (1000 * 60 * 60 * 24));
-          
           if (i === 0 && daysDiff <= 1) {
             currentStreak = 1;
           } else if (i > 0) {
-            const prevDaysDiff = Math.floor((today.getTime() - uniqueDates[i-1]) / (1000 * 60 * 60 * 24));
+            const prevDaysDiff = Math.floor((today.getTime() - uniqueDates[i - 1]) / (1000 * 60 * 60 * 24));
             if (daysDiff === prevDaysDiff + 1) {
               currentStreak++;
             } else {
@@ -115,6 +148,9 @@ const Home = () => {
     }
   };
 
+  /** ================================
+   *  LOAD TASKS (con dificultad)
+   *  ================================ */
   const loadTasks = async () => {
     try {
       const { data: userCategories } = await supabase
@@ -130,9 +166,13 @@ const Home = () => {
       }
 
       const activeCategories = userCategories.map((uc) => uc.category);
-
-      // Check if we have tasks assigned for today
       const today = new Date().toISOString().split('T')[0];
+
+      // Dificultad del usuario según su nivel actual
+      // (usamos el nivel localmente; en el primer render puede ser 1. Se recalcula tras stats)
+      const userDifficulty = difficultyFromUserLevel(stats.level || 1);
+
+      // Ver si ya hay daily_tasks hoy
       const { data: dailyTasksData } = await supabase
         .from("daily_tasks")
         .select("task_id")
@@ -140,76 +180,93 @@ const Home = () => {
         .eq("assigned_date", today) as { data: { task_id: string }[] | null };
 
       if (dailyTasksData && dailyTasksData.length > 0) {
-        // Load existing tasks for today
+        // Cargar tasks y filtrar por categoría activa + prefijo dificultad
         const taskIds = dailyTasksData.map(dt => dt.task_id);
         const { data: existingTasks } = await supabase
           .from("tasks")
           .select("*")
           .in("id", taskIds);
 
-        if (existingTasks) {
-          // Check which categories have tasks
-          const categoriesWithTasks = new Set(existingTasks.map(t => t.category));
-          const missingCategories = activeCategories.filter(cat => !categoriesWithTasks.has(cat));
-          const inactiveCategories = [...categoriesWithTasks].filter(cat => !activeCategories.includes(cat));
+        const filteredExisting = (existingTasks || []).filter(t => {
+          const matchesCategory = activeCategories.includes(t.category);
+          const d = parseDifficultyFromText(t.title) || parseDifficultyFromText(t.id);
+          const matchesDifficulty = d === userDifficulty;
+          return matchesCategory && matchesDifficulty;
+        });
 
-          // Remove tasks from inactive categories
-          if (inactiveCategories.length > 0) {
-            const tasksToRemove = existingTasks.filter(t => inactiveCategories.includes(t.category));
-            const taskIdsToRemove = tasksToRemove.map(t => t.id);
-            
-            await supabase
-              .from("daily_tasks")
-              .delete()
-              .eq("user_id", user?.id!)
-              .eq("assigned_date", today)
-              .in("task_id", taskIdsToRemove);
-          }
+        // Detectar categorías faltantes para esta dificultad
+        const categoriesWithTasks = new Set(filteredExisting.map(t => t.category));
+        const missingCategories = activeCategories.filter(cat => !categoriesWithTasks.has(cat));
 
-          // Add tasks for missing categories
-          let updatedTasks = existingTasks.filter(t => activeCategories.includes(t.category));
-          
-          if (missingCategories.length > 0) {
-            for (const category of missingCategories) {
-              const { data: categoryTasks } = await supabase
-                .from("tasks")
-                .select("*")
-                .eq("category", category);
+        // Eliminar de daily_tasks las que no coincidan con categoría activa o dificultad
+        const invalidTasks = (existingTasks || []).filter(t => {
+          const inActive = activeCategories.includes(t.category);
+          const d = parseDifficultyFromText(t.title) || parseDifficultyFromText(t.id);
+          const matchDiff = d === userDifficulty;
+          return !(inActive && matchDiff);
+        });
 
-              if (categoryTasks && categoryTasks.length > 0) {
-                // Select 5 random tasks from this category
-                const shuffled = categoryTasks.sort(() => Math.random() - 0.5);
-                const selectedTasks = shuffled.slice(0, 5);
-                
-                // Add to daily_tasks
-                const dailyTasksToInsert = selectedTasks.map(task => ({
-                  user_id: user?.id!,
-                  task_id: task.id,
-                  assigned_date: today
-                }));
+        if (invalidTasks.length > 0) {
+          const idsToRemove = invalidTasks.map(t => t.id);
+          await supabase
+            .from("daily_tasks")
+            .delete()
+            .eq("user_id", user?.id!)
+            .eq("assigned_date", today)
+            .in("task_id", idsToRemove);
+        }
 
-                await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
-                
-                // Add to our tasks array
-                updatedTasks = [...updatedTasks, ...selectedTasks];
-              }
+        // Añadir tasks para categorías faltantes (solo de la dificultad del usuario)
+        let updatedTasks = [...filteredExisting];
+
+        if (missingCategories.length > 0) {
+          for (const category of missingCategories) {
+            const { data: categoryTasks } = await supabase
+              .from("tasks")
+              .select("*")
+              .eq("category", category);
+
+            const eligibleByPrefix = (categoryTasks || []).filter(t => {
+              const d = parseDifficultyFromText(t.title) || parseDifficultyFromText(t.id);
+              return d === userDifficulty;
+            });
+
+            if (eligibleByPrefix.length > 0) {
+              // Seleccionar 5 aleatorias de esta categoría y dificultad
+              const shuffled = [...eligibleByPrefix].sort(() => Math.random() - 0.5);
+              const selected = shuffled.slice(0, 5);
+
+              // Guardar en daily_tasks
+              const toInsert = selected.map(task => ({
+                user_id: user?.id!,
+                task_id: task.id,
+                assigned_date: today
+              }));
+              await supabase.from("daily_tasks").insert(toInsert as any);
+
+              updatedTasks = [...updatedTasks, ...selected];
             }
           }
-
-          // Maintain the order from daily_tasks for existing, append new ones
-          const finalTaskIds = [...taskIds.filter(id => updatedTasks.some(t => t.id === id)), ...updatedTasks.filter(t => !taskIds.includes(t.id)).map(t => t.id)];
-          const orderedTasks = finalTaskIds
-            .map(id => updatedTasks.find(t => t.id === id))
-            .filter(Boolean) as Task[];
-          
-          setTasks(orderedTasks);
-          setCurrentIndex(0);
-          setLoading(false);
-          return;
         }
+
+        // Mantener orden (primero las que ya existían en daily_tasks y son válidas)
+        const validIdsInDaily = dailyTasksData
+          .map(dt => dt.task_id)
+          .filter(id => updatedTasks.some(t => t.id === id));
+        const appended = updatedTasks.filter(t => !validIdsInDaily.includes(t.id)).map(t => t.id);
+        const finalTaskIds = [...validIdsInDaily, ...appended];
+
+        const orderedTasks = finalTaskIds
+          .map(id => updatedTasks.find(t => t.id === id))
+          .filter(Boolean) as Task[];
+
+        setTasks(orderedTasks);
+        setCurrentIndex(0);
+        setLoading(false);
+        return;
       }
 
-      // No tasks for today, generate new ones
+      // No hay daily_tasks hoy → generar nuevas por categoría y dificultad del usuario
       const { data: allTasks, error } = await supabase
         .from("tasks")
         .select("*")
@@ -217,34 +274,39 @@ const Home = () => {
 
       if (error) throw error;
 
-      // Group tasks by category
+      // Filtrar por dificultad del usuario mediante prefijo
+      const eligibleAll = (allTasks || []).filter(t => {
+        const d = parseDifficultyFromText(t.title) || parseDifficultyFromText(t.id);
+        return d === userDifficulty;
+      });
+
+      // Agrupar por categoría
       const tasksByCategory: Record<string, Task[]> = {};
-      allTasks?.forEach(task => {
-        if (!tasksByCategory[task.category]) {
-          tasksByCategory[task.category] = [];
-        }
+      eligibleAll.forEach(task => {
+        if (!tasksByCategory[task.category]) tasksByCategory[task.category] = [];
         tasksByCategory[task.category].push(task);
       });
 
-      // Select 5 random tasks per category
+      // Seleccionar 5 por categoría
       const selectedTasks: Task[] = [];
       Object.keys(tasksByCategory).forEach(category => {
         const categoryTasks = tasksByCategory[category];
-        const shuffled = categoryTasks.sort(() => Math.random() - 0.5);
+        const shuffled = [...categoryTasks].sort(() => Math.random() - 0.5);
         selectedTasks.push(...shuffled.slice(0, 5));
       });
 
-      // Shuffle all selected tasks to mix categories
+      // Mezclar entre categorías
       const finalTasks = shuffleTasks(selectedTasks);
-      
-      // Save to daily_tasks
+
+      // Guardar daily_tasks
       const dailyTasksToInsert = finalTasks.map(task => ({
         user_id: user?.id!,
         task_id: task.id,
         assigned_date: today
       }));
-
-      await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
+      if (dailyTasksToInsert.length > 0) {
+        await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
+      }
 
       setTasks(finalTasks);
       setCurrentIndex(0);
@@ -256,19 +318,22 @@ const Home = () => {
     }
   };
 
+  /** ================================
+   *  CURRENT TASK + TRANSLATIONS
+   *  ================================ */
   const current = tasks[currentIndex];
-  
-  // Get translated task text
   const translatedTask = current ? getTaskTranslation(current.id, locale) : null;
-  const taskTitle = translatedTask?.title || current?.title;
+  const taskTitle = stripDifficultyPrefix(translatedTask?.title || current?.title);
   const taskDescription = translatedTask?.description || current?.description;
 
+  /** ================================
+   *  COMPLETE / SKIP (respetando dificultad)
+   *  ================================ */
   const handleComplete = useCallback(async () => {
     if (!current) return;
     try {
       const today = new Date().toISOString().split('T')[0];
 
-      // Mark task as completed
       await supabase.from("completed_tasks").insert({
         user_id: user?.id!,
         task_id: current.id,
@@ -276,7 +341,6 @@ const Home = () => {
         skipped: false,
       } as any);
 
-      // Remove from daily_tasks
       await supabase
         .from("daily_tasks")
         .delete()
@@ -285,30 +349,29 @@ const Home = () => {
         .eq("assigned_date", today);
 
       toast.success(t("task_completed") || "¡Tarea completada! 🎉");
-      
-      // Get a new task from the same category
+
+      // Preparar reemplazo desde misma categoría y misma dificultad del usuario
+      const userDifficulty = difficultyFromUserLevel(stats.level || 1);
+
       const { data: categoryTasks } = await supabase
         .from("tasks")
         .select("*")
         .eq("category", current.category);
 
-      // Filter out tasks already in the list
       const usedTaskIds = tasks.map(t => t.id);
-      const availableTasks = categoryTasks?.filter(
-        task => !usedTaskIds.includes(task.id)
-      ) || [];
+      const availableTasks = (categoryTasks || []).filter(task => {
+        const d = parseDifficultyFromText(task.title) || parseDifficultyFromText(task.id);
+        return d === userDifficulty && !usedTaskIds.includes(task.id);
+      });
 
-      // Remove current task from its position
       const newTasks = [...tasks];
       newTasks.splice(currentIndex, 1);
-      
-      // Add a new task at a random position if available
+
       if (availableTasks.length > 0) {
         const randomTask = availableTasks[Math.floor(Math.random() * availableTasks.length)];
         const randomPosition = Math.floor(Math.random() * (newTasks.length + 1));
         newTasks.splice(randomPosition, 0, randomTask);
 
-        // Add new task to daily_tasks
         await supabase.from("daily_tasks").insert({
           user_id: user?.id!,
           task_id: randomTask.id,
@@ -316,7 +379,7 @@ const Home = () => {
         } as any);
       }
 
-      // Update daily_tasks order to match new array
+      // Reescribir daily_tasks con el nuevo orden
       await supabase
         .from("daily_tasks")
         .delete()
@@ -328,26 +391,24 @@ const Home = () => {
         task_id: task.id,
         assigned_date: today
       }));
+      if (dailyTasksToInsert.length > 0) {
+        await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
+      }
 
-      await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
-      
       setTasks(newTasks);
-      
-      // Adjust current index if needed
       const newIndex = Math.min(currentIndex, newTasks.length - 1);
       setCurrentIndex(newIndex >= 0 ? newIndex : 0);
     } catch (e) {
       console.error(e);
       toast.error(t("error_complete") || "Error al completar la tarea");
     }
-  }, [current, tasks, currentIndex, user?.id, t]);
+  }, [current, tasks, currentIndex, user?.id, t, stats.level]);
 
   const handleSkip = useCallback(async () => {
     if (!current) return;
     try {
       const today = new Date().toISOString().split('T')[0];
 
-      // Mark task as skipped
       await supabase.from("completed_tasks").insert({
         user_id: user?.id!,
         task_id: current.id,
@@ -355,7 +416,6 @@ const Home = () => {
         skipped: true,
       } as any);
 
-      // Remove from daily_tasks
       await supabase
         .from("daily_tasks")
         .delete()
@@ -364,30 +424,29 @@ const Home = () => {
         .eq("assigned_date", today);
 
       toast.info(t("task_skipped") || "Tarea omitida");
-      
-      // Get a new task from the same category
+
+      // Reemplazo misma categoría + dificultad del usuario
+      const userDifficulty = difficultyFromUserLevel(stats.level || 1);
+
       const { data: categoryTasks } = await supabase
         .from("tasks")
         .select("*")
         .eq("category", current.category);
 
-      // Filter out tasks already in the list
       const usedTaskIds = tasks.map(t => t.id);
-      const availableTasks = categoryTasks?.filter(
-        task => !usedTaskIds.includes(task.id)
-      ) || [];
+      const availableTasks = (categoryTasks || []).filter(task => {
+        const d = parseDifficultyFromText(task.title) || parseDifficultyFromText(task.id);
+        return d === userDifficulty && !usedTaskIds.includes(task.id);
+      });
 
-      // Remove current task from its position
       const newTasks = [...tasks];
       newTasks.splice(currentIndex, 1);
-      
-      // Add a new task at a random position if available
+
       if (availableTasks.length > 0) {
         const randomTask = availableTasks[Math.floor(Math.random() * availableTasks.length)];
         const randomPosition = Math.floor(Math.random() * (newTasks.length + 1));
         newTasks.splice(randomPosition, 0, randomTask);
 
-        // Add new task to daily_tasks
         await supabase.from("daily_tasks").insert({
           user_id: user?.id!,
           task_id: randomTask.id,
@@ -395,7 +454,7 @@ const Home = () => {
         } as any);
       }
 
-      // Update daily_tasks order to match new array
+      // Reescribir daily_tasks con nuevo orden
       await supabase
         .from("daily_tasks")
         .delete()
@@ -407,27 +466,27 @@ const Home = () => {
         task_id: task.id,
         assigned_date: today
       }));
+      if (dailyTasksToInsert.length > 0) {
+        await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
+      }
 
-      await supabase.from("daily_tasks").insert(dailyTasksToInsert as any);
-      
       setTasks(newTasks);
-      
-      // Adjust current index if needed
       const newIndex = Math.min(currentIndex, newTasks.length - 1);
       setCurrentIndex(newIndex >= 0 ? newIndex : 0);
     } catch (e) {
       console.error(e);
       toast.error(t("error_skip") || "Error al omitir la tarea");
     }
-  }, [current, tasks, currentIndex, user?.id, t]);
+  }, [current, tasks, currentIndex, user?.id, t, stats.level]);
 
+  /** ================================
+   *  SWIPE / NAV
+   *  ================================ */
   const prev = () => setCurrentIndex((i) => Math.max(i - 1, 0));
   const next = () => setCurrentIndex((i) => Math.min(i + 1, tasks.length - 1));
 
-  // Touch handlers for swipe gestures
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
   const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null);
-
   const minSwipeDistance = 50;
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -456,6 +515,9 @@ const Home = () => {
     if (isRightSwipe) prev();
   };
 
+  /** ================================
+   *  LOADING / EMPTY
+   *  ================================ */
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -465,44 +527,43 @@ const Home = () => {
   }
 
   if (!current) {
-    // Check if we had tasks today but completed them all
     const hasCompletedTasksToday = tasks.length === 0 && !loading;
-    
+
     return (
       <div className="min-h-screen bg-background p-6 flex flex-col">
-      {/* Header */}
-      <div className="bg-gradient-hero text-white p-4 shadow-button">
-        <div className="max-w-2xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-black">{t("app_name")}</h1>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full">
-                <Avatar className="h-8 w-8 border-2 border-white">
-                  <AvatarImage src={stats.avatarUrl} />
-                  <AvatarFallback className="bg-white text-primary text-sm font-black">
-                    {stats.username.charAt(0).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
-              <DropdownMenuItem onClick={() => navigate("/profile")}>
-                <User className="h-4 w-4 mr-2" />
-                {t("profile")}
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => navigate("/settings")}>
-                <SettingsIcon className="h-4 w-4 mr-2" />
-                {t("settings")}
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={signOut} className="text-destructive">
-                <LogOut className="h-4 w-4 mr-2" />
-                {t("logout")}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+        {/* Header */}
+        <div className="bg-gradient-hero text-white p-4 shadow-button">
+          <div className="max-w-2xl mx-auto flex justify-between items-center">
+            <h1 className="text-2xl font-black">{t("app_name")}</h1>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/20 rounded-full">
+                  <Avatar className="h-8 w-8 border-2 border-white">
+                    <AvatarImage src={stats.avatarUrl} />
+                    <AvatarFallback className="bg-white text-primary text-sm font-black">
+                      {stats.username.charAt(0).toUpperCase()}
+                    </AvatarFallback>
+                  </Avatar>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem onClick={() => navigate("/profile")}>
+                  <User className="h-4 w-4 mr-2" />
+                  {t("profile")}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate("/settings")}>
+                  <SettingsIcon className="h-4 w-4 mr-2" />
+                  {t("settings")}
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={signOut} className="text-destructive">
+                  <LogOut className="h-4 w-4 mr-2" />
+                  {t("logout")}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
-      </div>
 
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center max-w-md px-4">
@@ -521,10 +582,16 @@ const Home = () => {
     );
   }
 
+  /** ================================
+   *  LEVEL PROGRESS
+   *  ================================ */
   const xpToNextLevel = stats.level * 100;
   const currentLevelXP = stats.totalXP % 100;
   const levelProgress = (currentLevelXP / 100) * 100;
 
+  /** ================================
+   *  RENDER
+   *  ================================ */
   return (
     <div className="min-h-screen bg-background flex flex-col pb-16">
       {/* Header - Simplified */}
@@ -594,7 +661,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Task Card - Duolingo Style */}
+      {/* Task Card */}
       <div className="flex-1 p-6 flex flex-col items-center justify-center gap-6">
         <div className="w-full max-w-md">
           <Card 
@@ -618,7 +685,17 @@ const Home = () => {
                 >
                   {getCategoryName(current.category, locale)}
                 </div>
-                <h2 className="text-3xl font-black mb-6 leading-tight text-foreground">{taskTitle}</h2>
+
+                {/* Badge de Dificultad (opcional, derivada del prefijo) */}
+                <div className="mb-2">
+                  <span className="text-xs font-bold uppercase opacity-70">
+                    {parseDifficultyFromText(current.title) || parseDifficultyFromText(current.id) || ''}
+                  </span>
+                </div>
+
+                <h2 className="text-3xl font-black mb-6 leading-tight text-foreground">
+                  {taskTitle}
+                </h2>
                 <p className="text-muted-foreground text-lg leading-relaxed">{taskDescription}</p>
               </div>
 
@@ -644,7 +721,7 @@ const Home = () => {
           </Card>
         </div>
 
-        {/* Navigation controls outside card */}
+        {/* Navigation controls */}
         <div className="flex items-center justify-center gap-6 text-base">
           <Button 
             variant="ghost" 
@@ -681,5 +758,4 @@ const Home = () => {
   );
 };
 
-
-export default Home; 
+export default Home;
