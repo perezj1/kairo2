@@ -248,7 +248,7 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
     de: { title: "Benachrichtigungen deaktivieren", description: "Stummschalten Sie heute Social-Media-Benachrichtigungen" }
   },
 
-  // Ahorrar - 30 tareas
+  // Ahorrar 
   "EASY_ahorrar_1": { 
   "es": { "title": "Haz un presupuesto mensual", "description": "Haz un presupuesto rápido: ingresos y 5–10 gastos fijos/variables en una nota o app." }, 
   "en": { "title": "Make a monthly budget", "description": "Draft a quick budget: income and 5–10 fixed/variable expenses in a note or app." }, 
@@ -399,6 +399,36 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
   "en": { "title": "Set specific savings goals", "description": "Define amount/date and enable an automatic savings rule." }, 
   "de": { "title": "Konkrete Sparziele festlegen", "description": "Betrag/Datum definieren und automatische Sparregel aktivieren." } 
 },
+ "EASY_ahorrar_31": { "es": { "title": "Día sin gastar", "description": "Pasa 24 horas sin compras no esenciales." }, "en": { "title": "No-spend day", "description": "Go 24 hours without non-essential purchases." }, "de": { "title": "Kein-Geldausgeben-Tag", "description": "24 Stunden lang keine unnötigen Ausgaben." } },
+  "EASY_ahorrar_32": { "es": { "title": "Snack de casa", "description": "Lleva un snack de casa y evita comprar fuera." }, "en": { "title": "Home-made snack", "description": "Bring a snack from home and avoid buying out." }, "de": { "title": "Snack von zu Hause", "description": "Nimm einen Snack von zu Hause mit statt etwas zu kaufen." } },
+  "EASY_ahorrar_33": { "es": { "title": "Termo para café o té", "description": "Llena un termo en casa para el día." }, "en": { "title": "Thermos for coffee or tea", "description": "Fill a thermos at home for the day." }, "de": { "title": "Thermoskanne für Kaffee oder Tee", "description": "Fülle eine Thermoskanne zu Hause für den Tag." } },
+  "EASY_ahorrar_34": { "es": { "title": "Lava en frío", "description": "Pon la lavadora en agua fría hoy." }, "en": { "title": "Cold-wash laundry", "description": "Run your washing machine on cold today." }, "de": { "title": "Kaltwäsche", "description": "Wasche die Wäsche heute mit Kaltwasser." } },
+  "EASY_ahorrar_35": { "es": { "title": "Tendedero en vez de secadora", "description": "Seca la ropa al aire." }, "en": { "title": "Air-dry clothes", "description": "Use a drying rack instead of the dryer." }, "de": { "title": "Lufttrocknen statt Trockner", "description": "Trockne Kleidung an der Luft." } },
+  "EASY_ahorrar_36": { "es": { "title": "Baja 1°C la calefacción", "description": "Ajusta 1°C menos si es posible." }, "en": { "title": "Lower heating by 1°C", "description": "Turn your thermostat down by 1°C if possible." }, "de": { "title": "Heizung um 1°C senken", "description": "Stelle, wenn möglich, 1°C niedriger ein." } },
+  "EASY_ahorrar_37": { "es": { "title": "Usa luz natural", "description": "Abre cortinas y apaga focos innecesarios." }, "en": { "title": "Use natural light", "description": "Open curtains and switch off unnecessary lights." }, "de": { "title": "Natürliches Licht nutzen", "description": "Vorhänge auf und überflüssiges Licht ausschalten." } },
+  "EASY_ahorrar_38": { "es": { "title": "Cocina para 2 días", "description": "Duplica receta y guarda para mañana." }, "en": { "title": "Cook for two days", "description": "Double a recipe and save tomorrow’s portion." }, "de": { "title": "Für zwei Tage kochen", "description": "Koche doppelt und hebe eine Portion für morgen auf." } },
+  "EASY_ahorrar_39": { "es": { "title": "Reutiliza frascos", "description": "Usa botes vacíos como recipientes." }, "en": { "title": "Reuse jars", "description": "Use empty jars as containers." }, "de": { "title": "Gläser wiederverwenden", "description": "Nutze leere Gläser als Behälter." } },
+  "EASY_ahorrar_40": { "es": { "title": "Consume primero lo que vence", "description": "Revisa nevera y despensa y usa lo que caduca antes." }, "en": { "title": "Use soon-to-expire food first", "description": "Check fridge/pantry and cook what expires first." }, "de": { "title": "Zuerst ablaufende Lebensmittel nutzen", "description": "Kühlschrank/Vorrat prüfen und zuerst Verfallendes verwenden." } },
+  "EASY_ahorrar_41": { "es": { "title": "Desactiva compras in-app", "description": "Protege el móvil para evitar gastos accidentales." }, "en": { "title": "Disable in-app purchases", "description": "Protect your phone to avoid accidental spend." }, "de": { "title": "In-App-Käufe deaktivieren", "description": "Schütze das Handy, um Fehlkäufe zu vermeiden." } },
+  "EASY_ahorrar_42": { "es": { "title": "Envío estándar o recogida", "description": "Evita el extra por envío exprés." }, "en": { "title": "Standard shipping or pickup", "description": "Avoid paying extra for express delivery." }, "de": { "title": "Standardsendung oder Abholung", "description": "Spare die Zusatzkosten für Expressversand." } },
+  "EASY_ahorrar_43": { "es": { "title": "Almuerzo con sobras", "description": "Convierte sobras en tu comida de hoy." }, "en": { "title": "Leftovers for lunch", "description": "Turn leftovers into today’s lunch." }, "de": { "title": "Reste zum Mittag", "description": "Mache aus Resten dein heutiges Mittagessen." } },
+  "EASY_ahorrar_44": { "es": { "title": "Darse de baja de promos", "description": "Desuscríbete de emails que incitan a comprar." }, "en": { "title": "Unsubscribe from promos", "description": "Unsubscribe from shopping promo emails." }, "de": { "title": "Werbe-Mails abbestellen", "description": "Melde dich von kaufanreizenden Newslettern ab." } },
+  "EASY_ahorrar_45": { "es": { "title": "Lista de precios clave", "description": "Anota precios de referencia de 5 básicos." }, "en": { "title": "Key price list", "description": "Write reference prices for 5 staples." }, "de": { "title": "Preisliste für Basics", "description": "Notiere Richtpreise für 5 Grundartikel." } },
+  "EASY_ahorrar_46": { "es": { "title": "Agua saborizada casera", "description": "Haz agua con fruta/menta y evita refrescos." }, "en": { "title": "Homemade infused water", "description": "Make fruit/mint water and skip soda." }, "de": { "title": "Hausgemachtes Infused Water", "description": "Mache Wasser mit Früchten/Minze und spare Limonade." } },
+  "EASY_ahorrar_47": { "es": { "title": "Alternativa gratuita", "description": "Usa hoy una app o servicio gratuito equivalente." }, "en": { "title": "Free alternative", "description": "Use a free app/service alternative today." }, "de": { "title": "Kostenlose Alternative", "description": "Nutze heute eine kostenlose App/Service-Alternative." } },
+  "EASY_ahorrar_48": { "es": { "title": "Inventario en casa", "description": "Busca si ya tienes lo que ibas a comprar." }, "en": { "title": "Home inventory check", "description": "Check if you already have it before buying." }, "de": { "title": "Haushaltsinventur", "description": "Prüfe, ob du es schon hast, bevor du kaufst." } },
+  "EASY_ahorrar_49": { "es": { "title": "Ahorro de datos", "description": "Activa el modo de ahorro de datos en el móvil." }, "en": { "title": "Data saver", "description": "Turn on data-saving mode on your phone." }, "de": { "title": "Datensparmodus", "description": "Aktiviere den Datensparmodus am Smartphone." } },
+  "EASY_ahorrar_50": { "es": { "title": "Temporizador calefacción", "description": "Programa apagado en estancias vacías." }, "en": { "title": "Heating timer", "description": "Set timers to switch off in empty rooms." }, "de": { "title": "Heizungs-Timer", "description": "Stelle Timer zum Abschalten in leeren Räumen ein." } },
+  "EASY_ahorrar_51": { "es": { "title": "Desconecta cargadores", "description": "Quita cargadores que no uses." }, "en": { "title": "Unplug chargers", "description": "Unplug chargers you’re not using." }, "de": { "title": "Ladegeräte ausstecken", "description": "Ziehe ungenutzte Ladegeräte aus der Steckdose." } },
+  "EASY_ahorrar_52": { "es": { "title": "Almuerzo de casa", "description": "Prepara y lleva tu comida al trabajo." }, "en": { "title": "Packed lunch", "description": "Prepare and bring your lunch to work." }, "de": { "title": "Vesper von zu Hause", "description": "Bereite dein Mittagessen vor und nimm es mit." } },
+  "EASY_ahorrar_53": { "es": { "title": "Camina < 1 km", "description": "Para trayectos cortos, ve caminando." }, "en": { "title": "Walk < 1 km", "description": "Walk short trips instead of paying for transport." }, "de": { "title": "Unter 1 km zu Fuß", "description": "Kurze Strecken zu Fuß statt mit dem Verkehrsmittel." } },
+  "EASY_ahorrar_54": { "es": { "title": "Reutiliza bolsas", "description": "Lleva bolsas que ya tengas." }, "en": { "title": "Reuse bags", "description": "Take bags you already have." }, "de": { "title": "Taschen wiederverwenden", "description": "Nimm vorhandene Tüten/Taschen mit." } },
+  "EASY_ahorrar_55": { "es": { "title": "Legumbres económicas", "description": "Cocina lentejas/garbanzos para varias raciones." }, "en": { "title": "Budget legumes", "description": "Cook lentils/chickpeas for several portions." }, "de": { "title": "Günstige Hülsenfrüchte", "description": "Koche Linsen/Kichererbsen für mehrere Portionen." } },
+  "EASY_ahorrar_56": { "es": { "title": "Lista de suscripciones", "description": "Anota todas tus suscripciones activas." }, "en": { "title": "Subscriptions list", "description": "List all active subscriptions." }, "de": { "title": "Abo-Liste", "description": "Notiere alle aktiven Abos." } },
+  "EASY_ahorrar_57": { "es": { "title": "TV sin standby", "description": "Desenchufa la TV por la noche." }, "en": { "title": "No TV standby", "description": "Unplug the TV overnight." }, "de": { "title": "Kein TV-Standby", "description": "Ziehe den Stecker des Fernsehers über Nacht." } },
+  "EASY_ahorrar_58": { "es": { "title": "Cocina con despensa", "description": "Reto: cocina solo con lo que ya tienes." }, "en": { "title": "Pantry-only cooking", "description": "Challenge: cook only with what you have." }, "de": { "title": "Nur aus dem Vorrat kochen", "description": "Challenge: koche nur mit vorhandenen Zutaten." } },
+  "EASY_ahorrar_59": { "es": { "title": "Sin apps de delivery", "description": "Evita comisiones y cocínalo en casa." }, "en": { "title": "No delivery apps", "description": "Skip fees and cook at home." }, "de": { "title": "Keine Liefer-Apps", "description": "Spare Gebühren und koche zu Hause." } },
+  "EASY_ahorrar_60": { "es": { "title": "Evita comisiones de cajero", "description": "Saca efectivo solo en cajeros de tu banco." }, "en": { "title": "Avoid ATM fees", "description": "Withdraw cash only at your bank’s ATMs." }, "de": { "title": "Bankautomaten-Gebühren vermeiden", "description": "Hebe nur an Automaten deiner Bank ab." } },
 
   // 100 Tareas para Bajar Peso
   "HARD_weight_loss_001": { "es": { "title": "Camina 10,000 pasos", "description": "Alcanza 10,000 pasos para activar tu metabolismo." }, "en": { "title": "Walk 10,000 steps", "description": "Hit 10,000 steps to activate your metabolism." }, "de": { "title": "Gehe 10.000 Schritte", "description": "Erreiche 10.000 Schritte, um den Stoffwechsel anzuregen." } },
@@ -503,7 +533,7 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
   "HARD_weight_loss_100": { "es": { "title": "Box jumps", "description": "Saltos al cajón: 3×12." }, "en": { "title": "Box jumps", "description": "Jump onto a box or step: 3×12." }, "de": { "title": "Box Jumps", "description": "Sprünge auf die Box oder Stufe: 3×12." } },
 
 
-  // Mejorar el medio ambiente - 30 tareas
+  // Mejorar el medio ambiente 
   "EASY_ambiente_1": { "es": { "title": "Usa una bolsa reutilizable", "description": "Evita plásticos de un solo uso al hacer compras." }, "en": { "title": "Use a reusable bag", "description": "Avoid single-use plastics when shopping." }, "de": { "title": "Verwende eine wiederverwendbare Tasche", "description": "Vermeide Einwegplastik beim Einkaufen." } },
   "EASY_ambiente_2": { "es": { "title": "Recicla correctamente", "description": "Separa tus residuos según las normas locales." }, "en": { "title": "Recycle properly", "description": "Separate your waste according to local rules." }, "de": { "title": "Richtig recyceln", "description": "Trenne deinen Müll nach lokalen Vorgaben." } },
   "EASY_ambiente_3": { "es": { "title": "Reduce el consumo de agua", "description": "Cierra el grifo mientras te cepillas los dientes." }, "en": { "title": "Reduce water use", "description": "Turn off the tap while brushing your teeth." }, "de": { "title": "Wasserverbrauch reduzieren", "description": "Wasserhahn beim Zähneputzen zudrehen." } },
@@ -534,8 +564,38 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
   "MEDIUM_ambiente_28": { "es": { "title": "Reduce desperdicio de alimentos", "description": "Planifica, porciona y almacena bien." }, "en": { "title": "Reduce food waste", "description": "Plan, portion, and store properly." }, "de": { "title": "Lebensmittelverschwendung reduzieren", "description": "Planen, portionieren und richtig lagern." } },
   "MEDIUM_ambiente_29": { "es": { "title": "Envases reutilizables", "description": "Lleva tus propios recipientes para comida." }, "en": { "title": "Reusable food containers", "description": "Bring your own food boxes." }, "de": { "title": "Wiederverwendbare Behälter", "description": "Eigene Essensdosen mitnehmen." } },
   "EASY_ambiente_30": { "es": { "title": "Educa a otros", "description": "Comparte un tip ambiental que aprendiste." }, "en": { "title": "Educate others", "description": "Share one eco tip you learned." }, "de": { "title": "Andere informieren", "description": "Teile einen Umwelt-Tipp, den du gelernt hast." } },
+ "EASY_ambiente_31": { "es": { "title": "Cierra el grifo al enjabonarte", "description": "Mientras te lavas las manos, cierra el grifo para ahorrar agua." }, "en": { "title": "Turn off the tap while soaping", "description": "While washing your hands, turn off the tap to save water." }, "de": { "title": "Wasserhahn beim Einseifen zudrehen", "description": "Beim Händewaschen den Hahn schließen, um Wasser zu sparen." } },
+  "EASY_ambiente_32": { "es": { "title": "Reutiliza agua de cocción", "description": "Deja enfriar y úsala para regar plantas (si no tiene sal)." }, "en": { "title": "Reuse cooking water", "description": "Let it cool and water plants with it (if unsalted)." }, "de": { "title": "Kochwasser wiederverwenden", "description": "Abkühlen lassen und (ungesalzen) zum Gießen nutzen." } },
+  "EASY_ambiente_33": { "es": { "title": "Lleva envase reutilizable", "description": "Usa tu táper para take-away y evita envases desechables." }, "en": { "title": "Bring a reusable container", "description": "Use your own lunchbox for take-away and skip disposables." }, "de": { "title": "Wiederverwendbare Dose mitnehmen", "description": "Eigene Box für Take-away nutzen und Einweg vermeiden." } },
+  "EASY_ambiente_34": { "es": { "title": "Cepíllate con vaso", "description": "Usa un vaso y no dejes correr el agua al cepillarte." }, "en": { "title": "Brush with a cup", "description": "Use a cup and don’t let water run while brushing." }, "de": { "title": "Mit Becher Zähne putzen", "description": "Becher nutzen und beim Putzen kein Wasser laufen lassen." } },
+  "EASY_ambiente_35": { "es": { "title": "Activa modo eco", "description": "Configura el modo ecológico en tus electrodomésticos." }, "en": { "title": "Enable eco mode", "description": "Set appliances to their energy-saving mode." }, "de": { "title": "Eco-Modus aktivieren", "description": "Geräte auf den energiesparenden Modus stellen." } },
+  "EASY_ambiente_36": { "es": { "title": "Documentos digitales", "description": "Comparte y firma en digital para evitar impresiones." }, "en": { "title": "Go paperless", "description": "Share and sign documents digitally to avoid printing." }, "de": { "title": "Papierlos arbeiten", "description": "Dokumente digital teilen und unterschreiben statt drucken." } },
+  "EASY_ambiente_37": { "es": { "title": "Ajusta la nevera", "description": "Frigorífico a 4 °C y congelador a −18 °C para eficiencia." }, "en": { "title": "Set fridge temperatures", "description": "Fridge at 4 °C and freezer at −18 °C for efficiency." }, "de": { "title": "Kühlschrank richtig einstellen", "description": "Kühlschrank 4 °C, Gefrierschrank −18 °C für Effizienz." } },
+  "EASY_ambiente_38": { "es": { "title": "Rechaza folletos", "description": "Di no a publicidad impresa que no necesites." }, "en": { "title": "Decline flyers", "description": "Say no to printed ads you don’t need." }, "de": { "title": "Flyer ablehnen", "description": "Unerwünschte Papierwerbung nicht annehmen." } },
+  "EASY_ambiente_39": { "es": { "title": "Usa un buscador ecológico", "description": "Prueba un motor de búsqueda que apoye proyectos verdes." }, "en": { "title": "Use an eco search engine", "description": "Try a search engine that funds green projects." }, "de": { "title": "Öko-Suchmaschine nutzen", "description": "Suchmaschine wählen, die Umweltprojekte unterstützt." } },
+  "EASY_ambiente_40": { "es": { "title": "Apaga el router por la noche", "description": "Si no lo necesitas, apágalo para ahorrar energía." }, "en": { "title": "Switch off router at night", "description": "Turn it off when unused to save energy." }, "de": { "title": "Router nachts ausschalten", "description": "Bei Nichtnutzung ausschalten, um Energie zu sparen." } },
+  "EASY_ambiente_41": { "es": { "title": "Cocina con tapa", "description": "Tapar ollas ahorra tiempo y energía." }, "en": { "title": "Cook with lids on", "description": "Lids reduce cooking time and save energy." }, "de": { "title": "Mit Deckel kochen", "description": "Mit Deckel kochen spart Zeit und Energie." } },
+  "EASY_ambiente_42": { "es": { "title": "Descongela en la nevera", "description": "Pasa alimentos del congelador a la nevera para aprovechar el frío." }, "en": { "title": "Defrost in the fridge", "description": "Move frozen food to the fridge to use the coolth." }, "de": { "title": "Im Kühlschrank auftauen", "description": "Gefrorenes im Kühlschrank auftauen und Kälte nutzen." } },
+  "EASY_ambiente_43": { "es": { "title": "Agrupa recados", "description": "Haz varias tareas en un solo trayecto para evitar viajes extra." }, "en": { "title": "Batch your errands", "description": "Combine errands into one trip to avoid extra travel." }, "de": { "title": "Erledigungen bündeln", "description": "Mehrere Wege in einem Gang erledigen und Fahrten sparen." } },
+  "EASY_ambiente_44": { "es": { "title": "Compra fruta y verdura “fea”", "description": "Elige piezas imperfectas para reducir el desperdicio." }, "en": { "title": "Buy “ugly” produce", "description": "Pick imperfect items to cut food waste." }, "de": { "title": "„Ugly“ Obst & Gemüse kaufen", "description": "Unperfekte Ware wählen, um Lebensmittelverschwendung zu senken." } },
+  "EASY_ambiente_45": { "es": { "title": "Escoba antes que aspiradora", "description": "Para limpiezas pequeñas, usa escoba y recoge migas." }, "en": { "title": "Broom over vacuum", "description": "For small cleanups, use a broom instead of vacuum." }, "de": { "title": "Besen statt Staubsauger", "description": "Für kleine Reinigungen den Besen nutzen." } },
+  "EASY_ambiente_46": { "es": { "title": "Aísla con cortinas", "description": "Cierra cortinas o persianas al atardecer para conservar calor." }, "en": { "title": "Insulate with curtains", "description": "Close curtains/blinds at dusk to keep heat in." }, "de": { "title": "Mit Vorhängen dämmen", "description": "Abends Vorhänge/Rollos schließen, um Wärme zu halten." } },
+  "EASY_ambiente_47": { "es": { "title": "Usa regleta con interruptor", "description": "Apaga de una vez TV, consola y periféricos." }, "en": { "title": "Use a switched power strip", "description": "Cut standby for TV, console and peripherals at once." }, "de": { "title": "Steckdosenleiste mit Schalter", "description": "TV, Konsole & Co. gesammelt per Schalter ausschalten." } },
+  "EASY_ambiente_48": { "es": { "title": "Aprovecha el horno", "description": "Hornea varias preparaciones a la vez para ahorrar energía." }, "en": { "title": "Make the oven count", "description": "Bake multiple dishes at once to save energy." }, "de": { "title": "Ofen optimal nutzen", "description": "Mehrere Speisen gleichzeitig backen und Energie sparen." } },
+  "EASY_ambiente_49": { "es": { "title": "Cubiertos reutilizables", "description": "Lleva cubiertos de metal/bambú en tu bolso o mochila." }, "en": { "title": "Reusable cutlery", "description": "Carry metal/bamboo cutlery in your bag." }, "de": { "title": "Wiederverwendbares Besteck", "description": "Metall-/Bambus-Besteck in der Tasche mitnehmen." } },
+  "EASY_ambiente_50": { "es": { "title": "Pide sin tapa ni agitador", "description": "En bebidas para llevar, evita tapas y paletinas." }, "en": { "title": "Ask for no lid or stirrer", "description": "Skip lids and stirrers on to-go drinks." }, "de": { "title": "Ohne Deckel und Rührstäbchen", "description": "Bei To-go-Getränken auf Deckel und Stäbchen verzichten." } },
+  "EASY_ambiente_51": { "es": { "title": "Cámbiate a factura electrónica", "description": "Activa facturas digitales en tus servicios." }, "en": { "title": "Switch to e-billing", "description": "Enable digital invoices for your services." }, "de": { "title": "Auf E-Rechnung umstellen", "description": "Digitale Rechnungen bei deinen Anbietern aktivieren." } },
+  "EASY_ambiente_52": { "es": { "title": "Apaga el motor en esperas", "description": "Si conduces, apágalo si vas a parar más de 1 minuto." }, "en": { "title": "Engine off while waiting", "description": "If driving, switch off when stationary over 1 minute." }, "de": { "title": "Motor im Stand aus", "description": "Beim Warten über 1 Minute den Motor ausschalten." } },
+  "EASY_ambiente_53": { "es": { "title": "Airea la ropa", "description": "Si no está sucia, ventila y retrasa el lavado." }, "en": { "title": "Air clothes out", "description": "If not dirty, air garments instead of washing." }, "de": { "title": "Kleidung auslüften", "description": "Nicht stark verschmutzte Kleidung lüften statt waschen." } },
+  "EASY_ambiente_54": { "es": { "title": "Bote para orgánicos", "description": "Prepara un recipiente para restos orgánicos (futuro compost)." }, "en": { "title": "Jar for organics", "description": "Set up a container for organic scraps (future compost)." }, "de": { "title": "Behälter für Bioabfälle", "description": "Einen Behälter für organische Reste bereitstellen (Kompost)." } },
+  "EASY_ambiente_55": { "es": { "title": "Tarros para comprar a granel", "description": "Lleva frascos o bolsas de tela para rellenar." }, "en": { "title": "Bring jars for bulk", "description": "Take jars or cloth bags to refill." }, "de": { "title": "Gläser für Unverpackt", "description": "Gläser oder Stoffbeutel zum Auffüllen mitnehmen." } },
+  "EASY_ambiente_56": { "es": { "title": "Reutiliza cajas de envío", "description": "Guarda cajas y rellenos para futuros envíos." }, "en": { "title": "Reuse shipping boxes", "description": "Keep boxes and packing for future shipments." }, "de": { "title": "Versandkartons wiederverwenden", "description": "Kartons und Füllmaterial für spätere Sendungen aufbewahren." } },
+  "EASY_ambiente_57": { "es": { "title": "Imprime a doble cara", "description": "Activa doble cara y modo borrador si necesitas imprimir." }, "en": { "title": "Print double-sided", "description": "Use duplex and draft mode when printing." }, "de": { "title": "Beidseitig drucken", "description": "Beim Drucken Duplex und Entwurfsmodus nutzen." } },
+  "EASY_ambiente_58": { "es": { "title": "Papelera de reciclaje visible", "description": "Coloca un contenedor de reciclaje a mano en casa." }, "en": { "title": "Visible recycling bin", "description": "Place a recycling bin somewhere obvious at home." }, "de": { "title": "Sichtbare Recyclingtonne", "description": "Eine gut sichtbare Recyclingtonne zu Hause platzieren." } },
+  "EASY_ambiente_59": { "es": { "title": "Compra de temporada", "description": "Elige frutas y verduras de estación para reducir huella." }, "en": { "title": "Buy seasonal produce", "description": "Pick in-season fruit and veg to cut footprint." }, "de": { "title": "Saisonal einkaufen", "description": "Obst und Gemüse der Saison wählen, um die Bilanz zu verbessern." } },
+  "EASY_ambiente_60": { "es": { "title": "Limpia filtros", "description": "Limpia filtros de campana o aire para mejorar eficiencia." }, "en": { "title": "Clean filters", "description": "Clean range hood or air filters to improve efficiency." }, "de": { "title": "Filter reinigen", "description": "Filter von Dunstabzug/Belüftung reinigen für bessere Effizienz." } },
 
-  // Reducir uso de pantallas - 30 tareas
+  // Reducir uso de pantallas 
   "EASY_pantallas_1": { "es": { "title": "No mires el móvil al despertar", "description": "Espera al menos 30 minutos." }, "en": { "title": "Don’t check phone on waking", "description": "Wait at least 30 minutes." }, "de": { "title": "Nach dem Aufwachen nicht aufs Handy", "description": "Mindestens 30 Minuten warten." } },
   "MEDIUM_pantallas_2": { "es": { "title": "Zonas sin celular", "description": "Define comedor o dormitorio como libres de móvil." }, "en": { "title": "Phone-free zones", "description": "Make dining room or bedroom phone-free." }, "de": { "title": "Handyfreie Zonen", "description": "Esszimmer oder Schlafzimmer handyfrei machen." } },
   "EASY_pantallas_3": { "es": { "title": "Desactiva notificaciones", "description": "Quita las no esenciales para menos interrupciones." }, "en": { "title": "Disable non-essential alerts", "description": "Reduce constant interruptions." }, "de": { "title": "Nicht nötige Benachrichtigungen aus", "description": "Ständige Unterbrechungen reduzieren." } },
@@ -567,7 +627,159 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
   "EASY_pantallas_29": { "es": { "title": "Manualidades", "description": "Crea algo con tus manos sin tecnología." }, "en": { "title": "Crafts", "description": "Make something with your hands—no tech." }, "de": { "title": "Basteln/Handarbeit", "description": "Etwas mit den Händen schaffen – ohne Technik." } },
   "EASY_pantallas_30": { "es": { "title": "Revisa tu tiempo de pantalla", "description": "Mira estadísticas y toma conciencia." }, "en": { "title": "Check screen-time stats", "description": "Review usage and build awareness." }, "de": { "title": "Bildschirmzeit prüfen", "description": "Nutzung ansehen und Bewusstsein schaffen." } },
 
-  // Comer Sano (comer_1 a comer_30)
+  "EASY_pantallas_31": {
+    "es": { "title": "Configura límites diarios de apps", "description": "Activa “Tiempo de uso/Wellbeing” y fija minutos por app." },
+    "en": { "title": "Set daily app limits", "description": "Enable Screen Time/Digital Wellbeing and set minutes per app." },
+    "de": { "title": "Tägliche App-Limits einstellen", "description": "Bildschirmzeit/Digital Wellbeing aktivieren und Minuten pro App festlegen." }
+  },
+  "EASY_pantallas_32": {
+    "es": { "title": "Mueve apps tentación al final", "description": "Coloca redes y juegos en la última pantalla de inicio." },
+    "en": { "title": "Move tempting apps to the end", "description": "Place socials and games on the last home screen page." },
+    "de": { "title": "Verlockende Apps nach hinten", "description": "Soziale Medien und Spiele auf die letzte Startseite verschieben." }
+  },
+  "EASY_pantallas_33": {
+    "es": { "title": "Oculta widgets y noticias", "description": "Quita widgets que te hacen abrir el móvil sin pensar." },
+    "en": { "title": "Hide widgets and news feeds", "description": "Remove widgets that trigger mindless phone checks." },
+    "de": { "title": "Widgets und News ausblenden", "description": "Widgets entfernen, die zu gedankenlosem Öffnen verleiten." }
+  },
+  "EASY_pantallas_34": {
+    "es": { "title": "Caja de “parking” para el móvil", "description": "Déjalo 60 minutos en una caja o cesto lejos de ti." },
+    "en": { "title": "Phone parking box", "description": "Leave it in a box/basket away from you for 60 minutes." },
+    "de": { "title": "Handy-Parkbox", "description": "Lege es 60 Minuten lang außer Reichweite in eine Box/Korb." }
+  },
+  "EASY_pantallas_35": {
+    "es": { "title": "Notificaciones en resumen", "description": "Agrupa avisos en horarios fijos con un resumen programado." },
+    "en": { "title": "Notification summary", "description": "Batch notifications into fixed times with a scheduled summary." },
+    "de": { "title": "Benachrichtigungs-Zusammenfassung", "description": "Mit geplantem Überblick Benachrichtigungen zu festen Zeiten bündeln." }
+  },
+  "EASY_pantallas_36": {
+    "es": { "title": "Desactiva el autoplay", "description": "Apaga la reproducción automática en redes y vídeo." },
+    "en": { "title": "Disable autoplay", "description": "Turn off auto-play in social apps and video platforms." },
+    "de": { "title": "Autoplay deaktivieren", "description": "Autoplay in sozialen Apps und Video-Plattformen ausschalten." }
+  },
+  "EASY_pantallas_37": {
+    "es": { "title": "Silencia chats no urgentes", "description": "Silencia grupos o DMs por 8 horas." },
+    "en": { "title": "Mute non-urgent chats", "description": "Mute groups/DMs for 8 hours." },
+    "de": { "title": "Nicht dringende Chats stummschalten", "description": "Gruppen/DMs für 8 Stunden stummschalten." }
+  },
+  "EASY_pantallas_38": {
+    "es": { "title": "Darse de baja de newsletters", "description": "Cancela la suscripción de 3 correos que no lees." },
+    "en": { "title": "Unsubscribe from newsletters", "description": "Unsubscribe from 3 emails you never read." },
+    "de": { "title": "Newsletter abbestellen", "description": "Drei Newsletter abmelden, die du nie liest." }
+  },
+  "EASY_pantallas_39": {
+    "es": { "title": "Programa “No molestar”", "description": "Actívalo a una hora fija cada día." },
+    "en": { "title": "Schedule Do Not Disturb", "description": "Enable it at a fixed time every day." },
+    "de": { "title": "Nicht stören planen", "description": "Täglich zu einer festen Zeit aktivieren." }
+  },
+  "EASY_pantallas_40": {
+    "es": { "title": "Consulta la hora en reloj", "description": "Mira la hora en reloj, no en el móvil, hoy." },
+    "en": { "title": "Check time on a watch", "description": "Use a watch instead of your phone today." },
+    "de": { "title": "Zeit auf der Uhr prüfen", "description": "Heute die Uhr statt des Handys benutzen." }
+  },
+  "EASY_pantallas_41": {
+    "es": { "title": "Lee en papel 1 artículo", "description": "Imprime o usa papel para un artículo largo." },
+    "en": { "title": "Read one article on paper", "description": "Print or use paper for a long-form piece." },
+    "de": { "title": "Einen Artikel auf Papier lesen", "description": "Einen längeren Text ausdrucken oder auf Papier lesen." }
+  },
+  "EASY_pantallas_42": {
+    "es": { "title": "Fuera del baño", "description": "No lleves el móvil al baño hoy." },
+    "en": { "title": "No phone in the bathroom", "description": "Keep your phone out of the bathroom today." },
+    "de": { "title": "Kein Handy im Bad", "description": "Heute das Handy nicht mit ins Bad nehmen." }
+  },
+  "EASY_pantallas_43": {
+    "es": { "title": "Solo audio en YouTube", "description": "Escucha 20 min sin mirar la pantalla." },
+    "en": { "title": "Audio-only YouTube", "description": "Listen for 20 minutes without watching the screen." },
+    "de": { "title": "YouTube nur als Audio", "description": "20 Minuten hören, ohne auf den Bildschirm zu schauen." }
+  },
+  "EASY_pantallas_44": {
+    "es": { "title": "Quita previsualizaciones", "description": "Desactiva previews de video/animación en apps." },
+    "en": { "title": "Remove previews", "description": "Disable video/animation previews in apps." },
+    "de": { "title": "Vorschauen entfernen", "description": "Video-/Animationsvorschauen in Apps deaktivieren." }
+  },
+  "EASY_pantallas_45": {
+    "es": { "title": "Sin push en correo", "description": "Apaga el push del email y revisa manualmente." },
+    "en": { "title": "No email push", "description": "Turn off email push; check manually." },
+    "de": { "title": "Kein E-Mail-Push", "description": "E-Mail-Push ausschalten und manuell prüfen." }
+  },
+  "EASY_pantallas_46": {
+    "es": { "title": "3 momentos para mensajes", "description": "Elige 3 horarios para revisar mensajes hoy." },
+    "en": { "title": "Three message check-ins", "description": "Pick three times to check messages today." },
+    "de": { "title": "Dreimal Nachrichten prüfen", "description": "Heute drei feste Zeiten zum Nachrichtenchecken wählen." }
+  },
+  "EASY_pantallas_47": {
+    "es": { "title": "Lista de compras en papel", "description": "Usa papel en vez de app para tu lista." },
+    "en": { "title": "Shopping list on paper", "description": "Use paper instead of an app for your list." },
+    "de": { "title": "Einkaufsliste auf Papier", "description": "Statt App eine Papierliste verwenden." }
+  },
+  "EASY_pantallas_48": {
+    "es": { "title": "Modo avión 30 minutos", "description": "Bloque de concentración sin interrupciones." },
+    "en": { "title": "Airplane mode for 30 minutes", "description": "Focus block with zero interruptions." },
+    "de": { "title": "30 Minuten Flugmodus", "description": "Konzentriert arbeiten ohne Unterbrechungen." }
+  },
+  "EASY_pantallas_49": {
+    "es": { "title": "Una sola página de inicio", "description": "Reduce a una pantalla con solo esenciales." },
+    "en": { "title": "Single home-screen page", "description": "Keep only essentials on one page." },
+    "de": { "title": "Nur eine Startseite", "description": "Auf eine Seite mit nur den wichtigsten Apps reduzieren." }
+  },
+  "EASY_pantallas_50": {
+    "es": { "title": "Tema minimalista", "description": "Fondo simple, sin animaciones, todo el día." },
+    "en": { "title": "Minimal theme", "description": "Simple wallpaper, no animations, all day." },
+    "de": { "title": "Minimalistisches Theme", "description": "Schlichter Hintergrund, keine Animationen – den ganzen Tag." }
+  },
+  "EASY_pantallas_51": {
+    "es": { "title": "Regla 20-20-20", "description": "Cada 20 min, mira 20 s a 6 m de distancia." },
+    "en": { "title": "20-20-20 rule", "description": "Every 20 min, look 20 s at 20 ft (6 m) away." },
+    "de": { "title": "20-20-20-Regel", "description": "Alle 20 Min. 20 Sek. in 6 m Entfernung schauen." }
+  },
+  "EASY_pantallas_52": {
+    "es": { "title": "Cargador lejos de la cama", "description": "Evita usar el móvil en la noche." },
+    "en": { "title": "Charger away from bed", "description": "Avoid nighttime phone use." },
+    "de": { "title": "Ladegerät weg vom Bett", "description": "Nächtliche Handynutzung vermeiden." }
+  },
+  "EASY_pantallas_53": {
+    "es": { "title": "Limpieza de apps", "description": "Elimina 5 apps que no usas." },
+    "en": { "title": "App cleanup", "description": "Delete five apps you don’t use." },
+    "de": { "title": "App-Aufräumen", "description": "Fünf nicht genutzte Apps löschen." }
+  },
+  "EASY_pantallas_54": {
+    "es": { "title": "Desinstala un juego adictivo", "description": "Elimina hoy el juego que más tiempo te roba." },
+    "en": { "title": "Uninstall one addictive game", "description": "Remove the game that eats most of your time." },
+    "de": { "title": "Ein süchtig machendes Spiel löschen", "description": "Das zeitfressendste Spiel heute entfernen." }
+  },
+  "EASY_pantallas_55": {
+    "es": { "title": "Sin alertas de última hora", "description": "Desactiva breaking news no esenciales." },
+    "en": { "title": "No breaking-news alerts", "description": "Turn off non-essential breaking news." },
+    "de": { "title": "Keine Eilmeldungen", "description": "Nicht essenzielle Breaking-News deaktivieren." }
+  },
+  "EASY_pantallas_56": {
+    "es": { "title": "Cambia scroll por paseo", "description": "Reemplaza 15 min de scroll por caminar 15 min." },
+    "en": { "title": "Swap scrolling for a walk", "description": "Replace 15 min of scrolling with a 15-min walk." },
+    "de": { "title": "Scrollen gegen Spaziergang tauschen", "description": "15 Min. Scrollen durch 15 Min. Gehen ersetzen." }
+  },
+  "EASY_pantallas_57": {
+    "es": { "title": "Filtra palabras clave", "description": "Bloquea términos que disparan tu doomscrolling." },
+    "en": { "title": "Filter trigger keywords", "description": "Block terms that fuel your doomscrolling." },
+    "de": { "title": "Trigger-Schlagwörter filtern", "description": "Begriffe blockieren, die Doomscrolling auslösen." }
+  },
+  "EASY_pantallas_58": {
+    "es": { "title": "Sin vibración háptica", "description": "Desactiva la vibración del teclado y toques." },
+    "en": { "title": "No haptic buzz", "description": "Disable keyboard and touch vibration." },
+    "de": { "title": "Keine haptische Vibration", "description": "Vibration für Tastatur und Taps ausschalten." }
+  },
+  "EASY_pantallas_59": {
+    "es": { "title": "Fondo “respira”", "description": "Pon un recordatorio minimalista para pausar." },
+    "en": { "title": "“Breathe” wallpaper", "description": "Set a minimalist reminder to pause." },
+    "de": { "title": "„Atmen“-Hintergrund", "description": "Minimalistische Erinnerung zum Innehalten setzen." }
+  },
+  "EASY_pantallas_60": {
+    "es": { "title": "Zona de carga fuera del dormitorio", "description": "Crea un punto de carga lejos de la cama." },
+    "en": { "title": "Charging zone outside bedroom", "description": "Create a charging spot away from your bed." },
+    "de": { "title": "Ladezone außerhalb des Schlafzimmers", "description": "Einen Ladeplatz fern vom Bett einrichten." }
+  },
+
+
+  // Comer Sano 
   "EASY_comer_1": { "es": { "title": "5 porciones de frutas y verduras", "description": "Reparte 5 porciones con lo que tengas." }, "en": { "title": "5 servings fruit & veg", "description": "Spread 5 servings through the day." }, "de": { "title": "5 Portionen Obst & Gemüse", "description": "5 Portionen über den Tag verteilen." } },
 "EASY_comer_2": { "es": { "title": "8 vasos de agua", "description": "Usa una botella y marca 8 tomas." }, "en": { "title": "8 glasses of water", "description": "Use a bottle and tick off 8 drinks." }, "de": { "title": "8 Gläser Wasser", "description": "Flasche nutzen und 8 Trinkeinheiten markieren." } },
 "EASY_comer_3": { "es": { "title": "Sin bebidas azucaradas", "description": "Elige agua o infusiones." }, "en": { "title": "No sugary drinks", "description": "Choose water or tea." }, "de": { "title": "Keine zuckrigen Getränke", "description": "Wasser oder Tee wählen." } },
@@ -598,6 +810,158 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
 "MEDIUM_comer_28": { "es": { "title": "Sin frituras hoy", "description": "Usa horno, vapor, plancha o airfryer." }, "en": { "title": "No frying today", "description": "Use oven, steam, grill, or air fryer." }, "de": { "title": "Heute nicht frittieren", "description": "Ofen, Dampf, Grill oder Heißluftfritteuse nutzen." } },
 "MEDIUM_comer_29": { "es": { "title": "Probióticos naturales", "description": "Yogur/kéfir o fermentados." }, "en": { "title": "Natural probiotics", "description": "Yogurt/kefir or fermented foods." }, "de": { "title": "Natürliche Probiotika", "description": "Joghurt/Kefir oder Fermentiertes." } },
 "EASY_comer_30": { "es": { "title": "Escucha tu hambre", "description": "Come con hambre real y para con saciedad." }, "en": { "title": "Listen to hunger cues", "description": "Eat when truly hungry; stop comfortably full." }, "de": { "title": "Auf Hungersignale hören", "description": "Bei echtem Hunger essen; angenehm satt aufhören." } },
+
+  "EASY_comer_31": {
+    "es": { "title": "Añade 1 pieza de fruta extra", "description": "Suma hoy 1 fruta más a tu día." },
+    "en": { "title": "Add one extra fruit", "description": "Add one more piece of fruit today." },
+    "de": { "title": "Ein zusätzliches Stück Obst", "description": "Heute ein weiteres Stück Obst einplanen." }
+  },
+  "EASY_comer_32": {
+    "es": { "title": "Un vaso de agua antes de cada comida", "description": "Bebe agua 10–20 min antes de comer." },
+    "en": { "title": "One glass of water before meals", "description": "Drink water 10–20 minutes before eating." },
+    "de": { "title": "Ein Glas Wasser vor jeder Mahlzeit", "description": "10–20 Minuten vor dem Essen Wasser trinken." }
+  },
+  "EASY_comer_33": {
+    "es": { "title": "Merienda proteica simple", "description": "Yogur natural o un puñado de frutos secos." },
+    "en": { "title": "Simple protein snack", "description": "Plain yogurt or a handful of nuts." },
+    "de": { "title": "Einfacher Protein-Snack", "description": "Naturjoghurt oder eine Handvoll Nüsse." }
+  },
+  "EASY_comer_34": {
+    "es": { "title": "Mitad del plato verduras", "description": "Que la mitad del plato sean verduras." },
+    "en": { "title": "Half plate veggies", "description": "Make half your plate vegetables." },
+    "de": { "title": "Halber Teller Gemüse", "description": "Die Hälfte des Tellers mit Gemüse füllen." }
+  },
+  "EASY_comer_35": {
+    "es": { "title": "Evita salsas azucaradas", "description": "Usa limón, especias o aceite de oliva." },
+    "en": { "title": "Skip sugary sauces", "description": "Use lemon, herbs, or olive oil instead." },
+    "de": { "title": "Zuckerhaltige Soßen vermeiden", "description": "Lieber Zitrone, Gewürze oder Olivenöl verwenden." }
+  },
+  "EASY_comer_36": {
+    "es": { "title": "Elige pan integral", "description": "Sustituye pan blanco por integral." },
+    "en": { "title": "Choose whole-grain bread", "description": "Swap white bread for whole-grain." },
+    "de": { "title": "Vollkornbrot wählen", "description": "Weißbrot durch Vollkornbrot ersetzen." }
+  },
+  "EASY_comer_37": {
+    "es": { "title": "Incluye una ensalada", "description": "Añade una ensalada sencilla a tu comida." },
+    "en": { "title": "Add a salad", "description": "Include a simple salad with your meal." },
+    "de": { "title": "Einen Salat hinzufügen", "description": "Eine einfache Salatbeilage einplanen." }
+  },
+  "EASY_comer_38": {
+    "es": { "title": "Control de porciones con plato pequeño", "description": "Usa plato más pequeño para servirte." },
+    "en": { "title": "Portion control with smaller plate", "description": "Serve meals on a smaller plate." },
+    "de": { "title": "Portionskontrolle mit kleinem Teller", "description": "Mahlzeiten auf einem kleineren Teller servieren." }
+  },
+  "EASY_comer_39": {
+    "es": { "title": "Sin bebidas energéticas", "description": "Evítalas por hoy; elige agua o infusiones." },
+    "en": { "title": "No energy drinks today", "description": "Choose water or herbal tea instead." },
+    "de": { "title": "Heute keine Energydrinks", "description": "Stattdessen Wasser oder Kräutertee wählen." }
+  },
+  "EASY_comer_40": {
+    "es": { "title": "Fruta de postre", "description": "Cierra la comida con fruta entera." },
+    "en": { "title": "Fruit for dessert", "description": "Finish your meal with whole fruit." },
+    "de": { "title": "Obst als Dessert", "description": "Die Mahlzeit mit frischem Obst beenden." }
+  },
+  "EASY_comer_41": {
+    "es": { "title": "Añade legumbres", "description": "Incluye lentejas, garbanzos o alubias hoy." },
+    "en": { "title": "Add legumes", "description": "Include lentils, chickpeas, or beans today." },
+    "de": { "title": "Hülsenfrüchte hinzufügen", "description": "Heute Linsen, Kichererbsen oder Bohnen einbauen." }
+  },
+  "EASY_comer_42": {
+    "es": { "title": "Reduce el pan en la cena", "description": "Prioriza verduras y proteína ligera." },
+    "en": { "title": "Cut back bread at dinner", "description": "Prioritize vegetables and lean protein." },
+    "de": { "title": "Abends weniger Brot", "description": "Gemüse und leichte Proteine bevorzugen." }
+  },
+  "EASY_comer_43": {
+    "es": { "title": "Desayuno con fibra", "description": "Avena, fruta con piel o pan integral." },
+    "en": { "title": "High-fiber breakfast", "description": "Oats, fruit with skin, or whole-grain bread." },
+    "de": { "title": "Ballaststoffreiches Frühstück", "description": "Hafer, Obst mit Schale oder Vollkornbrot." }
+  },
+  "EASY_comer_44": {
+    "es": { "title": "Sin embutidos hoy", "description": "Sustituye por pollo, pavo o legumbres." },
+    "en": { "title": "No processed meats today", "description": "Swap for chicken, turkey, or legumes." },
+    "de": { "title": "Heute keine Wurstwaren", "description": "Durch Huhn, Pute oder Hülsenfrüchte ersetzen." }
+  },
+  "EASY_comer_45": {
+    "es": { "title": "Añade semillas", "description": "Chía, lino o sésamo a tus platos." },
+    "en": { "title": "Add seeds", "description": "Top meals with chia, flax, or sesame." },
+    "de": { "title": "Samen hinzufügen", "description": "Gerichte mit Chia, Leinsamen oder Sesam toppen." }
+  },
+  "EASY_comer_46": {
+    "es": { "title": "Evita frituras", "description": "Cocina al horno, vapor o plancha." },
+    "en": { "title": "Skip deep-fried foods", "description": "Bake, steam, or grill instead." },
+    "de": { "title": "Frittieren vermeiden", "description": "Stattdessen backen, dämpfen oder grillen." }
+  },
+  "EASY_comer_47": {
+    "es": { "title": "Mastica 15 veces por bocado", "description": "Come más lento y con atención." },
+    "en": { "title": "Chew 15 times per bite", "description": "Eat slower and with attention." },
+    "de": { "title": "15-mal kauen pro Bissen", "description": "Langsamer und achtsam essen." }
+  },
+  "EASY_comer_48": {
+    "es": { "title": "Cena temprano", "description": "Termina de cenar al menos 3 h antes de dormir." },
+    "en": { "title": "Early dinner", "description": "Finish eating at least 3 hours before bed." },
+    "de": { "title": "Früh zu Abend essen", "description": "Mindestens 3 Stunden vor dem Schlafen fertig essen." }
+  },
+  "EASY_comer_49": {
+    "es": { "title": "Incluye un alimento fermentado", "description": "Yogur, kéfir o chucrut en pequeña porción." },
+    "en": { "title": "Include a fermented food", "description": "Yogurt, kefir, or sauerkraut in a small portion." },
+    "de": { "title": "Ein fermentiertes Lebensmittel", "description": "Joghurt, Kefir oder Sauerkraut in kleiner Portion." }
+  },
+  "EASY_comer_50": {
+    "es": { "title": "Prueba una verdura nueva", "description": "Elige una que no comas habitualmente." },
+    "en": { "title": "Try a new vegetable", "description": "Pick one you don’t usually eat." },
+    "de": { "title": "Neues Gemüse probieren", "description": "Ein Gemüse wählen, das du selten isst." }
+  },
+  "EASY_comer_51": {
+    "es": { "title": "Evita bollería industrial", "description": "Cámbiala por fruta o frutos secos." },
+    "en": { "title": "Skip packaged pastries", "description": "Choose fruit or nuts instead." },
+    "de": { "title": "Keine Industriebäckerei-Backwaren", "description": "Stattdessen Obst oder Nüsse wählen." }
+  },
+  "EASY_comer_52": {
+    "es": { "title": "Sopa o crema de verduras", "description": "Empieza la comida con una crema ligera." },
+    "en": { "title": "Veggie soup starter", "description": "Start your meal with a light veggie soup." },
+    "de": { "title": "Gemüsesuppe als Vorspeise", "description": "Die Mahlzeit mit einer leichten Suppe beginnen." }
+  },
+  "EASY_comer_53": {
+    "es": { "title": "Aliño casero rápido", "description": "Aceite de oliva + limón/vinagre + especias." },
+    "en": { "title": "Quick homemade dressing", "description": "Olive oil + lemon/vinegar + spices." },
+    "de": { "title": "Schnelles hausgemachtes Dressing", "description": "Olivenöl + Zitrone/Essig + Gewürze." }
+  },
+  "EASY_comer_54": {
+    "es": { "title": "Reduce azúcar en el café", "description": "Prueba con menos cantidad o sin azúcar." },
+    "en": { "title": "Cut sugar in coffee", "description": "Use less sugar or go without." },
+    "de": { "title": "Weniger Zucker im Kaffee", "description": "Weniger Zucker oder ganz ohne trinken." }
+  },
+  "EASY_comer_55": {
+    "es": { "title": "Hidratación constante", "description": "Lleva contigo una botella de agua." },
+    "en": { "title": "Stay hydrated", "description": "Carry a water bottle with you." },
+    "de": { "title": "Ausreichend trinken", "description": "Eine Wasserflasche dabeihaben." }
+  },
+  "EASY_comer_56": {
+    "es": { "title": "Snack de verdura", "description": "Palitos de zanahoria/pepino con hummus." },
+    "en": { "title": "Veggie snack", "description": "Carrot/cucumber sticks with hummus." },
+    "de": { "title": "Gemüse-Snack", "description": "Karotten-/Gurkensticks mit Hummus." }
+  },
+  "EASY_comer_57": {
+    "es": { "title": "Porción de frutos secos", "description": "Un puñado (20–30 g) sin sal." },
+    "en": { "title": "Nuts portion", "description": "One handful (20–30 g), unsalted." },
+    "de": { "title": "Portion Nüsse", "description": "Eine Handvoll (20–30 g), ungesalzen." }
+  },
+  "EASY_comer_58": {
+    "es": { "title": "Evita comer de pie", "description": "Siéntate a la mesa y come con calma." },
+    "en": { "title": "Don’t eat standing up", "description": "Sit at a table and eat mindfully." },
+    "de": { "title": "Nicht im Stehen essen", "description": "Am Tisch sitzen und in Ruhe essen." }
+  },
+  "EASY_comer_59": {
+    "es": { "title": "2 colores extra en el plato", "description": "Añade dos colores de verdura/fruta más." },
+    "en": { "title": "Two extra colors on the plate", "description": "Add two more fruit/veg colors." },
+    "de": { "title": "Zwei zusätzliche Farben auf dem Teller", "description": "Zwei weitere Obst-/Gemüsefarben ergänzen." }
+  },
+  "EASY_comer_60": {
+    "es": { "title": "Agua como bebida principal", "description": "Hoy, elige agua en todas tus comidas." },
+    "en": { "title": "Water as main drink", "description": "Choose water with every meal today." },
+    "de": { "title": "Wasser als Hauptgetränk", "description": "Heute zu jeder Mahlzeit Wasser wählen." }
+  },
+
 
 // Dormir Bien (dormir_1 a dormir_30)
 "EASY_dormir_1": { "es": { "title": "Acuéstate a la misma hora", "description": "Elige una hora fija y respétala." }, "en": { "title": "Go to bed at the same time", "description": "Pick a fixed bedtime and stick to it." }, "de": { "title": "Zur selben Zeit schlafen gehen", "description": "Feste Schlafenszeit wählen und einhalten." } },
@@ -631,6 +995,158 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
 "EASY_dormir_29": { "es": { "title": "Escaneo corporal", "description": "Relaja de pies a cabeza 3–5 min." }, "en": { "title": "Body scan", "description": "Relax head to toe for 3–5 min." }, "de": { "title": "Körper-Scan", "description": "3–5 Min. von Kopf bis Fuß entspannen." } },
 "EASY_dormir_30": { "es": { "title": "Levántate a la misma hora", "description": "Incluido fin de semana." }, "en": { "title": "Wake up at the same time", "description": "Even on weekends." }, "de": { "title": "Zur gleichen Zeit aufstehen", "description": "Auch am Wochenende." } },
 
+  "EASY_dormir_31": {
+    "es": { "title": "Ventila el dormitorio 10 minutos", "description": "Abre la ventana por la mañana o al atardecer." },
+    "en": { "title": "Air out the bedroom for 10 minutes", "description": "Open the window in the morning or at dusk." },
+    "de": { "title": "Schlafzimmer 10 Minuten lüften", "description": "Morgens oder bei Dämmerung das Fenster öffnen." }
+  },
+  "EASY_dormir_32": {
+    "es": { "title": "Baja la luz 1 hora antes", "description": "Usa iluminación tenue o lámpara de mesa." },
+    "en": { "title": "Dim lights 1 hour before bed", "description": "Use soft lighting or a table lamp." },
+    "de": { "title": "Licht 1 Stunde vorher dimmen", "description": "Sanftes Licht oder Tischlampe verwenden." }
+  },
+  "EASY_dormir_33": {
+    "es": { "title": "Cena ligera con triptófano", "description": "Incluye huevo, yogur o pavo en pequeña porción." },
+    "en": { "title": "Light tryptophan-rich dinner", "description": "Include egg, yogurt, or turkey in a small portion." },
+    "de": { "title": "Leichtes Abendessen mit Tryptophan", "description": "Ei, Joghurt oder Pute in kleiner Portion einbauen." }
+  },
+  "EASY_dormir_34": {
+    "es": { "title": "Ordena tu mesita de noche", "description": "Deja solo lo esencial para una mente calma." },
+    "en": { "title": "Tidy your bedside table", "description": "Keep only essentials to calm the mind." },
+    "de": { "title": "Nachttisch aufräumen", "description": "Nur das Nötigste liegen lassen – für Ruhe im Kopf." }
+  },
+  "EASY_dormir_35": {
+    "es": { "title": "Activa “No molestar” automático", "description": "Programa el modo silencioso nocturno en el móvil." },
+    "en": { "title": "Enable automatic Do Not Disturb", "description": "Schedule nighttime silent mode on your phone." },
+    "de": { "title": "Automatischen „Nicht stören“-Modus aktivieren", "description": "Nacht-Stummmodus am Handy einplanen." }
+  },
+  "EASY_dormir_36": {
+    "es": { "title": "Elige pijama y ropa de cama adecuados", "description": "Evita calor/frío: tejidos transpirables." },
+    "en": { "title": "Pick proper pajamas and bedding", "description": "Avoid too hot/cold: use breathable fabrics." },
+    "de": { "title": "Passende Schlafkleidung und Bettwäsche", "description": "Nicht zu warm/kalt – atmungsaktive Stoffe nutzen." }
+  },
+  "EASY_dormir_37": {
+    "es": { "title": "Lava sábanas esta semana", "description": "La higiene favorece un mejor descanso." },
+    "en": { "title": "Wash sheets this week", "description": "Clean bedding supports better sleep." },
+    "de": { "title": "Bettwäsche diese Woche waschen", "description": "Saubere Bettwäsche fördert den Schlaf." }
+  },
+  "EASY_dormir_38": {
+    "es": { "title": "Almohada entre las rodillas", "description": "Mejora la postura y relaja la espalda si duermes de lado." },
+    "en": { "title": "Pillow between knees", "description": "Improves posture and relaxes the back when side-sleeping." },
+    "de": { "title": "Kissen zwischen die Knie", "description": "Verbessert Haltung und entspannt den Rücken in Seitenlage." }
+  },
+  "EASY_dormir_39": {
+    "es": { "title": "Usa luz roja/ámbar por la noche", "description": "Evita luz blanca/azul en el dormitorio." },
+    "en": { "title": "Use red/amber light at night", "description": "Avoid white/blue light in the bedroom." },
+    "de": { "title": "Abends rotes/bernsteinfarbenes Licht", "description": "Weißes/blaues Licht im Schlafzimmer vermeiden." }
+  },
+  "EASY_dormir_40": {
+    "es": { "title": "Luz natural al mediodía", "description": "Sal 10–15 minutos para reforzar ritmos circadianos." },
+    "en": { "title": "Midday natural light", "description": "Go outside 10–15 minutes to support circadian rhythm." },
+    "de": { "title": "Natürliches Licht am Mittag", "description": "10–15 Minuten rausgehen – gut für den Biorhythmus." }
+  },
+  "EASY_dormir_41": {
+    "es": { "title": "Evita nicotina por la tarde", "description": "Reduce estimulantes a partir de las 16:00." },
+    "en": { "title": "Avoid nicotine in the afternoon", "description": "Cut stimulants after 4 p.m." },
+    "de": { "title": "Nachmittags auf Nikotin verzichten", "description": "Stimulanzien ab 16 Uhr reduzieren." }
+  },
+  "EASY_dormir_42": {
+    "es": { "title": "Evita comidas picantes por la noche", "description": "Facilita la digestión antes de dormir." },
+    "en": { "title": "Skip spicy dinners", "description": "Make digestion easier before bedtime." },
+    "de": { "title": "Abends keine scharfen Speisen", "description": "So wird die Verdauung vor dem Schlafen leichter." }
+  },
+  "EASY_dormir_43": {
+    "es": { "title": "Diario de sueño 3 noches", "description": "Anota horas y calidad de tu sueño." },
+    "en": { "title": "Sleep log for 3 nights", "description": "Record bed/wake times and sleep quality." },
+    "de": { "title": "Schlaftagebuch für 3 Nächte", "description": "Zubett-/Aufstehzeiten und Schlafqualität notieren." }
+  },
+  "EASY_dormir_44": {
+    "es": { "title": "Baño de pies tibio", "description": "Relaja 10–15 minutos antes de acostarte." },
+    "en": { "title": "Warm foot bath", "description": "Relax 10–15 minutes before bed." },
+    "de": { "title": "Warmes Fußbad", "description": "10–15 Minuten vor dem Schlafengehen entspannen." }
+  },
+  "EASY_dormir_45": {
+    "es": { "title": "Hoy sin siesta", "description": "Si la necesitas, que sea corta y temprano." },
+    "en": { "title": "No nap today", "description": "If needed, keep it short and early." },
+    "de": { "title": "Heute kein Nickerchen", "description": "Falls nötig, kurz und früh halten." }
+  },
+  "EASY_dormir_46": {
+    "es": { "title": "Café descafeinado por la tarde", "description": "Evita cafeína después de las 14:00." },
+    "en": { "title": "Decaf in the afternoon", "description": "Avoid caffeine after 2 p.m." },
+    "de": { "title": "Nachmittags entkoffeiniert", "description": "Nach 14 Uhr Koffein vermeiden." }
+  },
+  "EASY_dormir_47": {
+    "es": { "title": "Despeja el dormitorio de dispositivos", "description": "Fuera portátiles/TV; el móvil lejos de la cama." },
+    "en": { "title": "Remove devices from bedroom", "description": "No laptops/TV; keep the phone away from bed." },
+    "de": { "title": "Geräte aus dem Schlafzimmer", "description": "Keine Laptops/TV; Handy nicht neben dem Bett." }
+  },
+  "EASY_dormir_48": {
+    "es": { "title": "Tapones y antifaz listos", "description": "Reduce ruido y luz ambiental." },
+    "en": { "title": "Earplugs and sleep mask", "description": "Reduce noise and ambient light." },
+    "de": { "title": "Ohrenstöpsel und Schlafmaske", "description": "Lärm und Umgebungslicht reduzieren." }
+  },
+  "EASY_dormir_49": {
+    "es": { "title": "Estiramientos cervicales 5 minutos", "description": "Libera tensión de cuello y hombros." },
+    "en": { "title": "Neck stretches for 5 minutes", "description": "Release neck and shoulder tension." },
+    "de": { "title": "5 Minuten Nacken-Dehnung", "description": "Verspannungen in Nacken und Schultern lösen." }
+  },
+  "EASY_dormir_50": {
+    "es": { "title": "Lectura en papel con luz cálida", "description": "Evita pantallas y brillo alto." },
+    "en": { "title": "Read on paper with warm light", "description": "Avoid screens and high brightness." },
+    "de": { "title": "Lesen auf Papier mit warmem Licht", "description": "Bildschirme und hohe Helligkeit vermeiden." }
+  },
+  "EASY_dormir_51": {
+    "es": { "title": "Escribe tu “mejor momento” del día", "description": "Cierra el día con una nota positiva." },
+    "en": { "title": "Write today’s best moment", "description": "End the day on a positive note." },
+    "de": { "title": "Besten Moment des Tages notieren", "description": "Den Tag mit einer positiven Notiz beenden." }
+  },
+  "EASY_dormir_52": {
+    "es": { "title": "Piernas en la pared 3–5 min", "description": "Postura restaurativa para calmar el sistema nervioso." },
+    "en": { "title": "Legs up the wall (3–5 min)", "description": "Restorative pose to calm your nervous system." },
+    "de": { "title": "Beine an der Wand (3–5 Min.)", "description": "Regenerative Haltung zur Beruhigung des Nervensystems." }
+  },
+  "EASY_dormir_53": {
+    "es": { "title": "Respiración “box” 4-4-4-4", "description": "4s inhalar, 4s retener, 4s exhalar, 4s retener (4–6 ciclos)." },
+    "en": { "title": "Box breathing 4-4-4-4", "description": "Inhale 4s, hold 4s, exhale 4s, hold 4s (4–6 rounds)." },
+    "de": { "title": "Box-Atmung 4-4-4-4", "description": "4 Sek. einatmen, 4 halten, 4 ausatmen, 4 halten (4–6 Runden)." }
+  },
+  "EASY_dormir_54": {
+    "es": { "title": "Activa filtro de luz azul", "description": "Configura “Night Shift” o filtro nocturno." },
+    "en": { "title": "Enable blue-light filter", "description": "Turn on Night Shift/blue-light filter." },
+    "de": { "title": "Blaulichtfilter aktivieren", "description": "Night-Shift/Blaulichtfilter einschalten." }
+  },
+  "EASY_dormir_55": {
+    "es": { "title": "Mocktail sin alcohol", "description": "Bebida nocturna sin alcohol ni cafeína." },
+    "en": { "title": "Alcohol-free mocktail", "description": "Night drink with no alcohol or caffeine." },
+    "de": { "title": "Alkoholfreier Mocktail", "description": "Abendgetränk ohne Alkohol und Koffein." }
+  },
+  "EASY_dormir_56": {
+    "es": { "title": "Plan de mañana en 3 puntos", "description": "Anota las 3 primeras tareas de mañana." },
+    "en": { "title": "Plan three tasks for tomorrow", "description": "Write down your first three tasks." },
+    "de": { "title": "Drei Aufgaben für morgen planen", "description": "Die ersten drei Aufgaben notieren." }
+  },
+  "EASY_dormir_57": {
+    "es": { "title": "Difusor 30 min antes de dormir", "description": "Lavanda o manzanilla en dosis suave." },
+    "en": { "title": "Diffuser 30 min before bed", "description": "Use lavender or chamomile lightly." },
+    "de": { "title": "Diffuser 30 Min. vor dem Schlafen", "description": "Lavendel oder Kamille dezent verwenden." }
+  },
+  "EASY_dormir_58": {
+    "es": { "title": "Paseo suave al atardecer", "description": "Camina 10–15 minutos para desconectar." },
+    "en": { "title": "Easy sunset walk", "description": "Walk 10–15 minutes to unwind." },
+    "de": { "title": "Entspannter Abendspaziergang", "description": "10–15 Minuten gehen zum Abschalten." }
+  },
+  "EASY_dormir_59": {
+    "es": { "title": "Última bebida 1 hora antes", "description": "Evita levantarte por la noche al baño." },
+    "en": { "title": "Last drink 1 hour before bed", "description": "Reduce nighttime bathroom trips." },
+    "de": { "title": "Letztes Getränk 1 Stunde vorher", "description": "Nächtliche Toilettengänge reduzieren." }
+  },
+  "EASY_dormir_60": {
+    "es": { "title": "Auto-masaje cuello y hombros", "description": "5 minutos de presión suave o con rodillo." },
+    "en": { "title": "Self-massage neck & shoulders", "description": "5 minutes of gentle pressure or roller." },
+    "de": { "title": "Selbstmassage Nacken & Schultern", "description": "5 Minuten sanfter Druck oder mit Rolle." }
+  },
+
+
 
   // Eliminar estrés (stress_1 a stress_30)
   "EASY_stress_1": { "es": { "title": "Respira 5 minutos", "description": "Inhala 4s, exhala 6s durante 5 min." }, "en": { "title": "Breathe for 5 minutes", "description": "Inhale 4s, exhale 6s for 5 min." }, "de": { "title": "5 Minuten atmen", "description": "4 Sek. ein, 6 Sek. aus für 5 Min." } },
@@ -663,7 +1179,157 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
   "MEDIUM_stress_28": { "es": { "title": "Delega cuando puedas", "description": "Pide ayuda con 1 tarea concreta." }, "en": { "title": "Delegate when possible", "description": "Ask help for one concrete task." }, "de": { "title": "Delegieren, wenn möglich", "description": "Um Hilfe bei einer konkreten Aufgabe bitten." } },
   "EASY_stress_29": { "es": { "title": "Observa el atardecer", "description": "Ventana/balcón y respiración lenta." }, "en": { "title": "Watch the sunset", "description": "Window/balcony with slow breathing." }, "de": { "title": "Sonnenuntergang ansehen", "description": "Am Fenster/Balkon langsam atmen." } },
   "EASY_stress_30": { "es": { "title": "Afirmaciones positivas", "description": "Repite 3 frases de apoyo personal." }, "en": { "title": "Positive affirmations", "description": "Repeat 3 self-supportive phrases." }, "de": { "title": "Positive Affirmationen", "description": "3 selbststärkende Sätze wiederholen." } },
-
+  
+  "EASY_stress_31": {
+    "es": { "title": "Técnica 5-4-3-2-1", "description": "Nombra 5 que ves, 4 que sientes, 3 que oyes, 2 que hueles y 1 que saboreas." },
+    "en": { "title": "5-4-3-2-1 grounding", "description": "Name 5 you see, 4 you feel, 3 you hear, 2 you smell, 1 you taste." },
+    "de": { "title": "5-4-3-2-1-Methode", "description": "Benenne 5 die du siehst, 4 fühlst, 3 hörst, 2 riechst, 1 schmeckst." }
+  },
+  "EASY_stress_32": {
+    "es": { "title": "Vacía la mente en papel", "description": "Escribe preocupaciones y una micro-acción para cada una." },
+    "en": { "title": "Brain dump on paper", "description": "Write worries and one tiny next step for each." },
+    "de": { "title": "Gedanken aufschreiben", "description": "Sorge notieren und je einen kleinen nächsten Schritt definieren." }
+  },
+  "EASY_stress_33": {
+    "es": { "title": "Aire fresco 5 minutos", "description": "Ventana o balcón, respira con atención." },
+    "en": { "title": "Fresh air for 5 minutes", "description": "Stand at a window/balcony and breathe mindfully." },
+    "de": { "title": "5 Minuten Frischluft", "description": "Am Fenster/Balkon achtsam atmen." }
+  },
+  "EASY_stress_34": {
+    "es": { "title": "Relaja mandíbula y hombros", "description": "Tensa 3s e intenta soltar con la exhalación, 5 repeticiones." },
+    "en": { "title": "Relax jaw and shoulders", "description": "Tense 3s, exhale and release; repeat 5 times." },
+    "de": { "title": "Kiefer und Schultern entspannen", "description": "3 Sek. anspannen, beim Ausatmen lösen; 5-mal." }
+  },
+  "EASY_stress_35": {
+    "es": { "title": "Autoabrazo 30 segundos", "description": "Cruza brazos y sostente con respiración lenta." },
+    "en": { "title": "Self-hug for 30 seconds", "description": "Cross arms over chest and breathe slowly." },
+    "de": { "title": "Selbstumarmung 30 Sekunden", "description": "Arme kreuzen und ruhig atmen." }
+  },
+  "EASY_stress_36": {
+    "es": { "title": "Respira con labios fruncidos", "description": "Inhala 2s por nariz, exhala 4s por labios durante 3 min." },
+    "en": { "title": "Pursed-lip breathing", "description": "Inhale 2s nose, exhale 4s lips for 3 minutes." },
+    "de": { "title": "Lippenbremse-Atmung", "description": "2 Sek. durch die Nase ein, 4 Sek. durch die Lippen aus – 3 Min." }
+  },
+  "EASY_stress_37": {
+    "es": { "title": "Escritura automática 3 min", "description": "Escribe sin parar ni editar; deja que fluya." },
+    "en": { "title": "Automatic writing 3 min", "description": "Write continuously without editing; let it flow." },
+    "de": { "title": "Automatisches Schreiben 3 Min.", "description": "Ohne Pause/Redaktion schreiben – einfach fließen lassen." }
+  },
+  "EASY_stress_38": {
+    "es": { "title": "Semáforo mental", "description": "Rojo: parar. Amarillo: respirar. Verde: dar el siguiente paso." },
+    "en": { "title": "Mental traffic light", "description": "Red: stop. Yellow: breathe. Green: take the next step." },
+    "de": { "title": "Mentale Ampel", "description": "Rot: stoppen. Gelb: atmen. Grün: nächsten Schritt tun." }
+  },
+  "EASY_stress_39": {
+    "es": { "title": "Estira pectoral en puerta", "description": "Marco de puerta, 2×30s por lado, abre el pecho." },
+    "en": { "title": "Doorway chest stretch", "description": "Hold 2×30s each side to open the chest." },
+    "de": { "title": "Brustdehnung im Türrahmen", "description": "Je Seite 2×30 Sek. halten – Brust öffnen." }
+  },
+  "EASY_stress_40": {
+    "es": { "title": "Escucha el entorno 2 min", "description": "Distingue sonidos cercanos y lejanos con ojos cerrados." },
+    "en": { "title": "Sound scan 2 minutes", "description": "With eyes closed, notice near and far sounds." },
+    "de": { "title": "Klangscan 2 Minuten", "description": "Mit geschlossenen Augen nahe und ferne Geräusche wahrnehmen." }
+  },
+  "EASY_stress_41": {
+    "es": { "title": "Micro-descanso 3 minutos", "description": "Ojos cerrados, manos en abdomen, respiración lenta." },
+    "en": { "title": "Micro break 3 minutes", "description": "Eyes closed, hands on belly, slow breath." },
+    "de": { "title": "Mikropause 3 Minuten", "description": "Augen schließen, Hände auf den Bauch, langsam atmen." }
+  },
+  "EASY_stress_42": {
+    "es": { "title": "Masaje de manos 2 min", "description": "Presiona palma y dedos en círculos suaves." },
+    "en": { "title": "Hand massage 2 min", "description": "Gently circle-press palm and fingers." },
+    "de": { "title": "Handmassage 2 Min.", "description": "Sanfter Druck in kreisenden Bewegungen auf Handfläche und Finger." }
+  },
+  "EASY_stress_43": {
+    "es": { "title": "Lista “no pasa nada si…”", "description": "Escribe 3 cosas que puedes soltar hoy sin problema." },
+    "en": { "title": "“It’s okay if…” list", "description": "Write 3 things you can let go of today." },
+    "de": { "title": "„Es ist ok, wenn …“-Liste", "description": "Notiere 3 Dinge, die du heute loslassen kannst." }
+  },
+  "EASY_stress_44": {
+    "es": { "title": "Gratitud por una persona", "description": "Escribe 1 motivo para agradecer a alguien." },
+    "en": { "title": "Gratitude for someone", "description": "Write one reason to thank a person." },
+    "de": { "title": "Dankbarkeit für eine Person", "description": "Schreibe einen Grund, jemandem zu danken." }
+  },
+  "EASY_stress_45": {
+    "es": { "title": "Descanso visual 20-20-20", "description": "Cada 20 min, mira a 6 m durante 20 s." },
+    "en": { "title": "20-20-20 eye break", "description": "Every 20 min, look 20 s at ~6 m distance." },
+    "de": { "title": "20-20-20-Augenpause", "description": "Alle 20 Min. 20 Sek. in ~6 m Entfernung schauen." }
+  },
+  "EASY_stress_46": {
+    "es": { "title": "Reencuadre en 1 frase", "description": "Transforma un pensamiento en una versión realista y útil." },
+    "en": { "title": "One-line reframing", "description": "Turn a thought into a realistic, helpful version." },
+    "de": { "title": "Reframing in einem Satz", "description": "Einen Gedanken realistisch und hilfreich umformulieren." }
+  },
+  "EASY_stress_47": {
+    "es": { "title": "Límite amable por chat", "description": "Crea una plantilla breve para decir “no” con respeto." },
+    "en": { "title": "Kind boundary template", "description": "Draft a short respectful “no” message template." },
+    "de": { "title": "Freundliche Grenz-Vorlage", "description": "Kurze, respektvolle „Nein“-Nachricht als Vorlage erstellen." }
+  },
+  "EASY_stress_48": {
+    "es": { "title": "Respiración coherente 6-6", "description": "Inhala 6s y exhala 6s durante 3–5 min." },
+    "en": { "title": "Coherent breathing 6-6", "description": "Inhale 6s, exhale 6s for 3–5 min." },
+    "de": { "title": "Kohärente Atmung 6-6", "description": "6 Sek. ein- und 6 Sek. ausatmen für 3–5 Min." }
+  },
+  "EASY_stress_49": {
+    "es": { "title": "Agua tibia en las manos", "description": "Siente la temperatura 2 min para aterrizar el cuerpo." },
+    "en": { "title": "Warm water on hands", "description": "Feel the temperature for 2 min to ground yourself." },
+    "de": { "title": "Lauwarmes Wasser an den Händen", "description": "2 Min. die Temperatur spüren – zum Erden." }
+  },
+  "EASY_stress_50": {
+    "es": { "title": "Garabatea 5 minutos", "description": "Dibuja líneas y formas sin objetivo." },
+    "en": { "title": "Doodle for 5 minutes", "description": "Draw lines and shapes with no goal." },
+    "de": { "title": "5 Minuten kritzeln", "description": "Linien und Formen ohne Ziel zeichnen." }
+  },
+  "EASY_stress_51": {
+    "es": { "title": "Mini-playlist calmante", "description": "Guarda 3 canciones que te relajen." },
+    "en": { "title": "Mini calming playlist", "description": "Save 3 songs that relax you." },
+    "de": { "title": "Mini-Playlist zum Entspannen", "description": "3 Lieder speichern, die dich beruhigen." }
+  },
+  "EASY_stress_52": {
+    "es": { "title": "Higiene digital express", "description": "Reordena o elimina 5 apps/atajos estresantes." },
+    "en": { "title": "Express digital hygiene", "description": "Reorder or remove 5 stressful apps/shortcuts." },
+    "de": { "title": "Digitale Schnell-Hygiene", "description": "5 stressende Apps/Shortcuts umordnen oder löschen." }
+  },
+  "EASY_stress_53": {
+    "es": { "title": "Camina en cuadrado consciente", "description": "4 lados de 20 pasos, atento a plantas y respiración." },
+    "en": { "title": "Mindful square walk", "description": "4 sides of 20 steps, notice feet and breath." },
+    "de": { "title": "Achtsamer Quadrat-Gang", "description": "4 Seiten à 20 Schritte – Füße und Atem spüren." }
+  },
+  "EASY_stress_54": {
+    "es": { "title": "Aroma cítrico rápido", "description": "Inhala aroma de cítrico 6 veces lentamente." },
+    "en": { "title": "Quick citrus aroma", "description": "Inhale a citrus scent slowly 6 times." },
+    "de": { "title": "Schneller Zitrus-Duft", "description": "Zitrusduft 6-mal langsam einatmen." }
+  },
+  "EASY_stress_55": {
+    "es": { "title": "Tapping EFT 2 minutos", "description": "Golpecitos suaves en puntos faciales con respiración lenta." },
+    "en": { "title": "EFT tapping 2 minutes", "description": "Gentle taps on facial points while breathing slowly." },
+    "de": { "title": "EFT-Tapping 2 Minuten", "description": "Sanftes Klopfen auf Gesichtspunkten bei ruhiger Atmung." }
+  },
+  "EASY_stress_56": {
+    "es": { "title": "Mira algo verde 5 minutos", "description": "Observa plantas o árboles y describe sus detalles." },
+    "en": { "title": "Gaze at green for 5 minutes", "description": "Look at plants/trees and describe details." },
+    "de": { "title": "5 Minuten ins Grüne schauen", "description": "Pflanzen/Bäume ansehen und Details beschreiben." }
+  },
+  "EASY_stress_57": {
+    "es": { "title": "Nota “lo pensaré mañana”", "description": "Escribe rumiaciones y cierra el cuaderno por hoy." },
+    "en": { "title": "“I’ll think about it tomorrow” note", "description": "Write ruminations down and close the notebook." },
+    "de": { "title": "Notiz „Morgen weiterdenken“", "description": "Grübeleien notieren und das Heft schließen." }
+  },
+  "EASY_stress_58": {
+    "es": { "title": "Define 1 micro-meta", "description": "Elige una acción ≤5 min y complétala ahora." },
+    "en": { "title": "Set one micro-goal", "description": "Pick an action ≤5 min and do it now." },
+    "de": { "title": "Ein Mikro-Ziel setzen", "description": "Eine ≤5-Minuten-Aufgabe wählen und jetzt erledigen." }
+  },
+  "EASY_stress_59": {
+    "es": { "title": "Agua en la cara lentamente", "description": "Lava el rostro sintiendo el contacto y la temperatura." },
+    "en": { "title": "Slow face splash", "description": "Wash your face noticing contact and temperature." },
+    "de": { "title": "Langsames Gesichtwaschen", "description": "Gesicht waschen und Kontakt/Temperatur bewusst spüren." }
+  },
+  "EASY_stress_60": {
+    "es": { "title": "Sonrisa suave 1 minuto", "description": "Mantén una leve sonrisa para inducir calma (biofeedback)." },
+    "en": { "title": "Soft smile for 1 minute", "description": "Hold a gentle smile to induce calm (biofeedback)." },
+    "de": { "title": "Sanftes Lächeln 1 Minute", "description": "Ein leichtes Lächeln halten – beruhigt (Biofeedback)." }
+  },
     // Dejar de fumar (fumar_1 a fumar_30)
   "EASY_fumar_1": { "es": { "title": "Retrasa el primer cigarro", "description": "Espera 60 min y ocúpate con algo breve." }, "en": { "title": "Delay the first cigarette", "description": "Wait 60 min and keep busy with a quick task." }, "de": { "title": "Erste Zigarette verzögern", "description": "60 Min. warten und kurz beschäftigen." } },
 "EASY_fumar_2": { "es": { "title": "Bebe agua al tener ganas", "description": "Toma 200–300 ml cuando aparezca el impulso." }, "en": { "title": "Drink water when cravings hit", "description": "Have 200–300 ml when the urge appears." }, "de": { "title": "Wasser bei Verlangen trinken", "description": "200–300 ml trinken, wenn das Verlangen kommt." } },
@@ -696,6 +1362,42 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
 "EASY_fumar_29": { "es": { "title": "Snacks saludables", "description": "Zanahoria, manzana o frutos secos." }, "en": { "title": "Healthy snacks", "description": "Carrot, apple, or nuts." }, "de": { "title": "Gesunde Snacks", "description": "Karotte, Apfel oder Nüsse." } },
 "MEDIUM_fumar_30": { "es": { "title": "Diario del proceso", "description": "Fecha, ganas (0–10) y qué ayudó." }, "en": { "title": "Quit diary", "description": "Date, urge (0–10), and what helped." }, "de": { "title": "Rauchstopp-Tagebuch", "description": "Datum, Verlangen (0–10) und was half." } },
 
+  "EASY_fumar_31": { "es": { "title": "Cambia tu rutina matutina", "description": "Sustituye el cigarro por un vaso de agua y 10 respiraciones." }, "en": { "title": "Change your morning routine", "description": "Swap the cigarette for a glass of water and 10 breaths." }, "de": { "title": "Morgenroutine ändern", "description": "Zigarette durch ein Glas Wasser und 10 Atemzüge ersetzen." } },
+  "EASY_fumar_32": { "es": { "title": "Chicle o palo de canela", "description": "Ten chicle sin azúcar o un palo de canela para el impulso." }, "en": { "title": "Gum or cinnamon stick", "description": "Keep sugar-free gum or a cinnamon stick for cravings." }, "de": { "title": "Kaugummi oder Zimtstange", "description": "Zuckerfreien Kaugummi oder Zimtstange gegen Verlangen bereithalten." } },
+  "EASY_fumar_33": { "es": { "title": "Retrasa 10 minutos", "description": "Cuando aparezca el impulso, espera 10 minutos y respira." }, "en": { "title": "Delay by 10 minutes", "description": "When a craving hits, wait 10 minutes and breathe." }, "de": { "title": "10 Minuten aufschieben", "description": "Bei Verlangen 10 Minuten warten und atmen." } },
+  "EASY_fumar_34": { "es": { "title": "Lista SOS de 3 acciones", "description": "Escribe 3 cosas rápidas que harás ante el impulso." }, "en": { "title": "3-step SOS list", "description": "Write 3 quick actions to do when a craving hits." }, "de": { "title": "3-Punkte-SOS-Liste", "description": "Drei schnelle Maßnahmen für den Akutfall notieren." } },
+  "EASY_fumar_35": { "es": { "title": "Agua cada antojo", "description": "Bebe 200–300 ml de agua antes de decidir." }, "en": { "title": "Water with every craving", "description": "Drink 200–300 ml of water before deciding." }, "de": { "title": "Wasser bei jedem Verlangen", "description": "Vor der Entscheidung 200–300 ml Wasser trinken." } },
+  "EASY_fumar_36": { "es": { "title": "Respiración cuadrada", "description": "Inhala 4s, retén 4s, exhala 4s, retén 4s (4 ciclos)." }, "en": { "title": "Box breathing", "description": "Inhale 4s, hold 4s, exhale 4s, hold 4s (4 rounds)." }, "de": { "title": "Box-Atmung", "description": "4 Sek. ein, 4 halten, 4 aus, 4 halten (4 Runden)." } },
+  "EASY_fumar_37": { "es": { "title": "Evita el disparador clave", "description": "Identifica un lugar/situación y evítalo hoy." }, "en": { "title": "Avoid one key trigger", "description": "Pick one location/situation and avoid it today." }, "de": { "title": "Einen Haupt-Trigger meiden", "description": "Einen Ort/eine Situation wählen und heute meiden." } },
+  "EASY_fumar_38": { "es": { "title": "Cepíllate tras comer", "description": "Corta el impulso post-comida con higiene oral." }, "en": { "title": "Brush after meals", "description": "Break the post-meal craving with oral hygiene." }, "de": { "title": "Nach dem Essen Zähneputzen", "description": "Nach dem Essen putzen, um das Verlangen zu brechen." } },
+  "EASY_fumar_39": { "es": { "title": "Manos ocupadas", "description": "Usa pelota antiestrés, bolígrafo o plastilina 5 minutos." }, "en": { "title": "Busy hands", "description": "Use a stress ball, pen or putty for 5 minutes." }, "de": { "title": "Beschäftigte Hände", "description": "5 Minuten Anti-Stress-Ball, Stift oder Knetmasse nutzen." } },
+  "EASY_fumar_40": { "es": { "title": "Mini paseo consciente", "description": "Camina 5–10 min prestando atención a la respiración." }, "en": { "title": "Mini mindful walk", "description": "Walk 5–10 min while focusing on your breath." }, "de": { "title": "Achtsamer Mini-Spaziergang", "description": "5–10 Min. gehen und auf die Atmung achten." } },
+  "EASY_fumar_41": { "es": { "title": "Café sin cigarro", "description": "Toma tu café en un lugar distinto y sin fumar." }, "en": { "title": "Coffee without a cigarette", "description": "Have coffee in a different spot and don’t smoke." }, "de": { "title": "Kaffee ohne Zigarette", "description": "Kaffee an einem anderen Ort und nicht rauchen." } },
+
+  "EASY_fumar_42": {
+  "es": { "title": "Reformula el pensamiento", "description": "De «lo necesito» a «la urgencia pasará en minutos»." },
+  "en": { "title": "Reframe the thought", "description": "From \"I need it\" to \"this urge will pass in minutes.\""},
+  "de": { "title": "Gedanken umdeuten", "description": "Von „Ich brauche es“ zu „Das Verlangen geht gleich vorbei.“" }
+},
+  "EASY_fumar_43": { "es": { "title": "Registra 1 antojo", "description": "Anota hora, intensidad (0–10) y qué te ayudó." }, "en": { "title": "Log one craving", "description": "Record time, intensity (0–10) and what helped." }, "de": { "title": "Ein Verlangen protokollieren", "description": "Zeit, Intensität (0–10) und hilfreiche Maßnahme notieren." } },
+  "EASY_fumar_44": { "es": { "title": "Premio sin tabaco", "description": "Guarda el dinero de hoy y date una mini-recompensa." }, "en": { "title": "Smoke-free reward", "description": "Save today’s money and give yourself a mini reward." }, "de": { "title": "Rauchfreie Belohnung", "description": "Heutiges Geld sparen und eine Mini-Belohnung gönnen." } },
+  "EASY_fumar_45": { "es": { "title": "Infusión en vez de cigarro", "description": "Sustituye un cigarro por una infusión caliente." }, "en": { "title": "Tea instead of a cigarette", "description": "Swap one cigarette for a warm herbal tea." }, "de": { "title": "Tee statt Zigarette", "description": "Eine Zigarette durch warmen Kräutertee ersetzen." } },
+  "EASY_fumar_46": { "es": { "title": "Boca ocupada", "description": "Palitos de zanahoria o chicle sin azúcar 5 minutos." }, "en": { "title": "Mouth busy", "description": "Carrot sticks or sugar-free gum for 5 minutes." }, "de": { "title": "Mund beschäftigen", "description": "5 Min. Karottensticks oder zuckerfreien Kaugummi." } },
+  "EASY_fumar_47": { "es": { "title": "Cambia el rincón de fumar", "description": "Evita el lugar habitual durante todo el día." }, "en": { "title": "Change your smoking spot", "description": "Avoid your usual place all day." }, "de": { "title": "Raucher-Ecke wechseln", "description": "Den üblichen Ort den ganzen Tag meiden." } },
+  "EASY_fumar_48": { "es": { "title": "Plan de 2 minutos", "description": "Cuando te den ganas, haz 2 minutos de actividad física." }, "en": { "title": "2-minute plan", "description": "When you crave, do 2 minutes of movement." }, "de": { "title": "2-Minuten-Plan", "description": "Bei Verlangen 2 Minuten Bewegung machen." } },
+  "EASY_fumar_49": { "es": { "title": "Respiración 4-7-8", "description": "Inhala 4s, retén 7s y exhala 8s, 4 ciclos." }, "en": { "title": "4-7-8 breathing", "description": "Inhale 4s, hold 7s, exhale 8s for 4 rounds." }, "de": { "title": "4-7-8-Atmung", "description": "4 Sek. ein, 7 halten, 8 aus – 4 Durchgänge." } },
+  "EASY_fumar_50": { "es": { "title": "Lava tus manos", "description": "Agua tibia y jabón para reducir el impulso." }, "en": { "title": "Wash your hands", "description": "Warm water and soap to reduce the urge." }, "de": { "title": "Hände waschen", "description": "Mit warmem Wasser und Seife das Verlangen senken." } },
+  "EASY_fumar_51": { "es": { "title": "Ancla visual", "description": "Coloca una nota “respiro primero” donde sueles fumar." }, "en": { "title": "Visual anchor", "description": "Place a “breathe first” note where you usually smoke." }, "de": { "title": "Visueller Anker", "description": "„Erst atmen“-Notiz am üblichen Rauchort platzieren." } },
+  "EASY_fumar_52": { "es": { "title": "Ducha breve anti-estrés", "description": "Agua tibia 2–3 min para cortar la ansiedad." }, "en": { "title": "Quick anti-stress shower", "description": "Warm water 2–3 min to break anxiety." }, "de": { "title": "Kurzdusche gegen Stress", "description": "2–3 Min. warm duschen, um die Anspannung zu lösen." } },
+  "EASY_fumar_53": { "es": { "title": "Llamada de apoyo", "description": "Envía un audio/mensaje a alguien de confianza." }, "en": { "title": "Support call", "description": "Send a voice note/message to a trusted person." }, "de": { "title": "Unterstützungs-Anruf", "description": "Sprachnachricht/Nachricht an eine Vertrauensperson schicken." } },
+  "EASY_fumar_54": { "es": { "title": "Red social fuera", "description": "Toma 1 hora sin redes si disparan el impulso." }, "en": { "title": "Social media off", "description": "Take 1 hour off if it triggers cravings." }, "de": { "title": "Soziale Medien aus", "description": "1 Stunde pausieren, wenn es Verlangen auslöst." } },
+  "EASY_fumar_55": { "es": { "title": "Nota de motivos visibles", "description": "Escribe 3 razones para dejarlo y pégalas a la vista." }, "en": { "title": "Visible reasons note", "description": "Write 3 reasons to quit and keep them visible." }, "de": { "title": "Sichtbare Gründe-Notiz", "description": "3 Gründe zum Aufhören schreiben und sichtbar platzieren." } },
+  "EASY_fumar_56": { "es": { "title": "Respira por la nariz", "description": "Solo respiración nasal 3 minutos para calmarte." }, "en": { "title": "Nasal breathing only", "description": "Nose-only breathing for 3 minutes to calm down." }, "de": { "title": "Nur Nasenatmung", "description": "3 Minuten ausschließlich durch die Nase atmen." } },
+  "EASY_fumar_57": { "es": { "title": "Recompensa simbólica", "description": "Marca un ✅ en tu calendario libre de humo." }, "en": { "title": "Symbolic reward", "description": "Add a ✅ to your smoke-free calendar." }, "de": { "title": "Symbolische Belohnung", "description": "Ein ✅ im rauchfreien Kalender setzen." } },
+  "EASY_fumar_58": { "es": { "title": "Anda con un snack sano", "description": "Lleva frutos secos o fruta para los picos de ganas." }, "en": { "title": "Carry a healthy snack", "description": "Bring nuts or fruit for craving spikes." }, "de": { "title": "Gesunden Snack dabeihaben", "description": "Nüsse oder Obst für akute Phasen mitnehmen." } },
+  "EASY_fumar_59": { "es": { "title": "Cambia de postura", "description": "Enderézate, abre el pecho y respira 1 minuto." }, "en": { "title": "Change your posture", "description": "Sit tall, open chest and breathe for 1 minute." }, "de": { "title": "Haltung ändern", "description": "Aufrichten, Brust öffnen und 1 Minute atmen." } },
+  "EASY_fumar_60": { "es": { "title": "Visualiza pulmones limpios", "description": "Imagina tus pulmones sanos durante 2 minutos." }, "en": { "title": "Visualize clean lungs", "description": "Imagine your lungs healthy for 2 minutes." }, "de": { "title": "Saubere Lungen visualisieren", "description": "2 Minuten lang gesunde Lungen vorstellen." } },
+
 // Mantenerse en forma (forma_1 a forma_30)
 "EASY_forma_1": { "es": { "title": "Haz 20 sentadillas", "description": "20 sentadillas sin material. Espalda recta." }, "en": { "title": "Do 20 squats", "description": "20 bodyweight squats. Keep your back straight." }, "de": { "title": "Mache 20 Kniebeugen", "description": "20 Kniebeugen ohne Equipment. Rücken gerade halten." } },
 "HARD_forma_2": { "es": { "title": "Camina 10,000 pasos", "description": "Suma pasos en casa o fuera hasta 10,000." }, "en": { "title": "Walk 10,000 steps", "description": "Accumulate steps at home or outside to reach 10,000." }, "de": { "title": "Gehe 10.000 Schritte", "description": "Zuhause oder draußen Schritte sammeln bis 10.000." } },
@@ -727,6 +1429,37 @@ export const TASK_TRANSLATIONS: Record<string, Record<string, TaskTranslation>> 
 "EASY_forma_28": { "es": { "title": "Estira zona lumbar", "description": "5–10 min de estiramientos suaves." }, "en": { "title": "Lower back stretch", "description": "5–10 minutes of gentle stretches." }, "de": { "title": "Lendenbereich dehnen", "description": "5–10 Min. sanft dehnen." } },
 "MEDIUM_forma_29": { "es": { "title": "Brazos con botellas", "description": "Tonifica brazos 12–15 min con botellas." }, "en": { "title": "Arms with bottles", "description": "Tone arms 12–15 min using bottles." }, "de": { "title": "Arme mit Flaschen", "description": "Arme 12–15 Min. mit Flaschen trainieren." } },
 "HARD_forma_30": { "es": { "title": "Natur 45 minutos", "description": "Camina al aire libre o 30 min de cardio en casa." }, "en": { "title": "Nature walk 45 min", "description": "Walk outdoors or do 30 min cardio at home." }, "de": { "title": "Naturspaziergang 45 Min.", "description": "Draußen gehen oder 30 Min. Cardio zu Hause." } },
+
+"EASY_forma_31": { "es": { "title": "Marcha en el sitio 2 min", "description": "Camina en el lugar con brazos activos durante 2 minutos." }, "en": { "title": "March in place 2 min", "description": "Walk on the spot with active arms for 2 minutes." }, "de": { "title": "Am Platz marschieren 2 Min", "description": "Am Ort gehen, Arme aktiv, 2 Minuten." } },
+"EASY_forma_32": { "es": { "title": "Círculos de brazos 1 min", "description": "30 s hacia delante y 30 s hacia atrás." }, "en": { "title": "Arm circles 1 min", "description": "30 s forward and 30 s backward." }, "de": { "title": "Armkreisen 1 Min", "description": "30 s vorwärts und 30 s rückwärts." } },
+"EASY_forma_33": { "es": { "title": "Talones a glúteos 1 min", "description": "Corre suave en el sitio llevando talones al glúteo." }, "en": { "title": "Butt kicks 1 min", "description": "Jog in place bringing heels to glutes." }, "de": { "title": "Fersen zum Gesäß 1 Min", "description": "Locker am Platz laufen, Fersen zum Po." } },
+"EASY_forma_34": { "es": { "title": "Rodillas altas 1 min", "description": "Eleva rodillas al pecho a ritmo cómodo." }, "en": { "title": "High knees 1 min", "description": "Lift knees toward chest at an easy pace." }, "de": { "title": "Hohe Knie 1 Min", "description": "Im Stand Knie Richtung Brust anheben." } },
+"EASY_forma_35": { "es": { "title": "Plancha 30 s", "description": "Mantén abdomen firme y cuerpo en línea." }, "en": { "title": "Plank 30 s", "description": "Hold a plank with tight core and straight line." }, "de": { "title": "Plank 30 s", "description": "Unterarmstütz mit festem Core, Körper in Linie." } },
+"EASY_forma_36": { "es": { "title": "Plancha lateral 20 s por lado", "description": "Apoya antebrazo y mantén 20 s cada lado." }, "en": { "title": "Side plank 20 s each", "description": "Forearm on floor; hold 20 s per side." }, "de": { "title": "Seitstütz 20 s je Seite", "description": "Auf dem Unterarm 20 Sekunden pro Seite halten." } },
+"EASY_forma_37": { "es": { "title": "Puente de glúteos 2×12", "description": "Acostado, eleva caderas: 2 series de 12." }, "en": { "title": "Glute bridge 2×12", "description": "Lying down, lift hips: 2 sets of 12." }, "de": { "title": "Glute Bridge 2×12", "description": "In Rückenlage Hüfte heben: 2 Sätze à 12." } },
+"EASY_forma_38": { "es": { "title": "Bird-dog 2×8 por lado", "description": "Extiende brazo y pierna contraria en cuadrupedia." }, "en": { "title": "Bird-dog 2×8 per side", "description": "On all fours, extend opposite arm and leg." }, "de": { "title": "Bird-Dog 2×8 je Seite", "description": "Im Vierfüßler gegenüberliegenden Arm und Bein strecken." } },
+"EASY_forma_39": { "es": { "title": "Elevación de gemelos 2×20", "description": "De puntillas sube y baja controlado: 2×20." }, "en": { "title": "Calf raises 2×20", "description": "Rise onto toes and lower with control: 2×20." }, "de": { "title": "Wadenheben 2×20", "description": "Auf die Zehen, kontrolliert absenken: 2×20." } },
+"EASY_forma_40": { "es": { "title": "Zancadas alternas 2×10", "description": "Paso largo y bajada controlada: 2×10 por lado." }, "en": { "title": "Alternating lunges 2×10", "description": "Step long and lower with control: 2×10 each side." }, "de": { "title": "Ausfallschritte 2×10", "description": "Großer Schritt, kontrolliert senken: 2×10 je Seite." } },
+"EASY_forma_41": { "es": { "title": "Jumping jacks 60 s", "description": "Hampelmänner a ritmo cómodo 60 s." }, "en": { "title": "Jumping jacks 60 s", "description": "Do jumping jacks at a comfortable pace for 60 s." }, "de": { "title": "Hampelmänner 60 s", "description": "60 Sekunden im lockeren Tempo." } },
+"EASY_forma_42": { "es": { "title": "Bisagra de cadera 2×15", "description": "Good-mornings sin peso desde caderas." }, "en": { "title": "Hip hinge 2×15", "description": "Bodyweight good-mornings from the hips." }, "de": { "title": "Hüftbeuge 2×15", "description": "Good Mornings mit Körpergewicht." } },
+"EASY_forma_43": { "es": { "title": "Rotaciones de tronco 1 min", "description": "De pie, rota suavemente el torso por 1 minuto." }, "en": { "title": "Torso rotations 1 min", "description": "Stand and rotate your torso gently for 1 minute." }, "de": { "title": "Rumpfrotationen 1 Min", "description": "Im Stand den Oberkörper sanft 1 Minute drehen." } },
+"EASY_forma_44": { "es": { "title": "Estira cuello 2 min", "description": "Inclinaciones y giros suaves: 30 s por dirección." }, "en": { "title": "Neck stretch 2 min", "description": "Gentle tilts and turns: 30 s per direction." }, "de": { "title": "Nacken dehnen 2 Min", "description": "Sanft neigen und drehen: 30 s je Richtung." } },
+"EASY_forma_45": { "es": { "title": "Movilidad de hombros 2 min", "description": "Cruces, elevaciones y apertura de pecho." }, "en": { "title": "Shoulder mobility 2 min", "description": "Cross-body, raises and chest opening." }, "de": { "title": "Schultermobilität 2 Min", "description": "Überkreuzen, heben und Brust öffnen." } },
+"EASY_forma_46": { "es": { "title": "Apertura de cadera 2 min", "description": "Círculos y balanceos suaves de cadera." }, "en": { "title": "Hip opener 2 min", "description": "Gentle hip circles and swings." }, "de": { "title": "Hüftöffner 2 Min", "description": "Sanfte Hüftkreise und -schwünge." } },
+"EASY_forma_47": { "es": { "title": "Estira isquios 2 min", "description": "Inclínate con espalda larga: 1 min por lado." }, "en": { "title": "Hamstring stretch 2 min", "description": "Hinge forward with long spine: 1 min per side." }, "de": { "title": "Ischios dehnen 2 Min", "description": "Mit langem Rücken vorbeugen: 1 Min je Seite." } },
+"EASY_forma_48": { "es": { "title": "Toques a puntas 20 reps", "description": "Desde de pie, toca puntas o tibias 20 veces." }, "en": { "title": "Toe touches 20 reps", "description": "From standing, touch toes or shins 20 times." }, "de": { "title": "Zehenspitzen berühren 20 Wh", "description": "Im Stand Zehen oder Schienbein 20× berühren." } },
+"EASY_forma_49": { "es": { "title": "Sentadilla isométrica 30 s", "description": "Baja a media sentadilla y mantén 30 s." }, "en": { "title": "Isometric squat 30 s", "description": "Lower to a half squat and hold for 30 s." }, "de": { "title": "Isometrische Kniebeuge 30 s", "description": "In halbe Kniebeuge gehen und 30 s halten." } },
+"EASY_forma_50": { "es": { "title": "Patadas laterales 2×12", "description": "Eleva la pierna de lado con control: 2×12 por lado." }, "en": { "title": "Side leg raises 2×12", "description": "Lift the leg to the side with control: 2×12 each." }, "de": { "title": "Seitliches Beinheben 2×12", "description": "Bein seitlich kontrolliert heben: 2×12 je Seite." } },
+"EASY_forma_51": { "es": { "title": "Círculos de cadera 1 min", "description": "Dibuja círculos amplios con la pelvis por 1 minuto." }, "en": { "title": "Hip circles 1 min", "description": "Draw big circles with your pelvis for 1 minute." }, "de": { "title": "Hüftkreisen 1 Min", "description": "Große Kreise mit dem Becken 1 Minute lang." } },
+"EASY_forma_52": { "es": { "title": "Pasos laterales 2 min", "description": "Da pasos laterales continuos en poco espacio." }, "en": { "title": "Side steps 2 min", "description": "Take continuous side steps in a small space." }, "de": { "title": "Seitwärtsschritte 2 Min", "description": "Kontinuierliche Seitwärtsschritte auf kleinem Raum." } },
+"EASY_forma_53": { "es": { "title": "Rodilla con giro 2×10", "description": "Eleva rodilla y gira torso hacia ella." }, "en": { "title": "Knee raise with twist 2×10", "description": "Lift knee and twist torso toward it." }, "de": { "title": "Knieheben mit Drehung 2×10", "description": "Knie heben und Oberkörper dorthin drehen." } },
+"EASY_forma_54": { "es": { "title": "Equilibrio en puntas 60 s", "description": "Súbete a puntas y mantén el equilibrio 60 s." }, "en": { "title": "Tiptoe hold 60 s", "description": "Rise onto tiptoes and hold for 60 s." }, "de": { "title": "Zehenspitzen-Hold 60 s", "description": "Auf Zehenspitzen 60 Sekunden halten." } },
+"EASY_forma_55": { "es": { "title": "Respira y camina 1 min", "description": "Inhala 4 pasos, exhala 6 pasos." }, "en": { "title": "Breathe & walk 1 min", "description": "Inhale for 4 steps, exhale for 6." }, "de": { "title": "Atmen & Gehen 1 Min", "description": "4 Schritte einatmen, 6 Schritte ausatmen." } },
+"EASY_forma_56": { "es": { "title": "Tensión–relajación 1 min", "description": "Aprieta 5 s todo el cuerpo y suelta; repite." }, "en": { "title": "Tense–release 1 min", "description": "Tighten for 5 s, release; repeat." }, "de": { "title": "Anspannen–Lösen 1 Min", "description": "5 s anspannen, lösen; mehrmals wiederholen." } },
+"EASY_forma_57": { "es": { "title": "Escápulas atrás 2×15", "description": "Junta omóplatos 2 s y suelta: 2×15." }, "en": { "title": "Scapular squeezes 2×15", "description": "Squeeze shoulder blades 2 s and release: 2×15." }, "de": { "title": "Schulterblatt-Squeeze 2×15", "description": "Schulterblätter 2 s zusammenziehen und lösen: 2×15." } },
+"EASY_forma_58": { "es": { "title": "Círculos de tobillo 1 min", "description": "30 s por sentido en cada pie." }, "en": { "title": "Ankle circles 1 min", "description": "30 s each direction per foot." }, "de": { "title": "Fußgelenk-Kreise 1 Min", "description": "30 s je Richtung pro Fuß." } },
+"EASY_forma_59": { "es": { "title": "Estira cuádriceps 45 s", "description": "Toma el empeine y acerca talón al glúteo." }, "en": { "title": "Quad stretch 45 s", "description": "Hold foot, heel to glute: 45 s per side." }, "de": { "title": "Quadrizeps-Dehnung 45 s", "description": "Fuß fassen, Ferse zum Gesäß: 45 s pro Seite." } },
+"EASY_forma_60": { "es": { "title": "Respiraciones al sol 10 rep", "description": "Inhala subiendo brazos, exhala bajándolos (10 rep)." }, "en": { "title": "Sun breaths 10 reps", "description": "Inhale lifting arms, exhale lowering them (10 reps)." }, "de": { "title": "Sonnen-Atemzüge 10 Wh", "description": "Beim Einatmen Arme heben, beim Ausatmen senken (10 Wh)." } }
 
 
 };
